@@ -8,6 +8,6 @@ public class GameManager : MonoBehaviour
 {
     private void Awake()
     {
-        ScenesManager.LoadScene(SceneLayer.GameState,"MenuScene");
+        ScenesManager.LoadScene(SceneLayer.GameState,"PlayState");
     }
 }
