@@ -10,6 +10,6 @@ public class Scrolls : MonoBehaviour
     
     private void FixedUpdate()
     {
-        scrolls.transform.localPosition = new Vector2(Time.time * speed, 0f);
+        scrolls.transform.localPosition = new Vector2(Time.time * -speed * 10, 0f);
     }
 }
