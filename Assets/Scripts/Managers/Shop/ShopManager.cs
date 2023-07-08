@@ -101,17 +101,6 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    public void DebugShopContent()
-    {
-        String debugString = "";
-        foreach (var md in _currentShopContent)
-        {
-            debugString += " " + md.name + "| ";
-        }
-
-        Debug.Log(debugString);
-    }
-
     public void BuyMouse(MouseDefinition definition)
     {
         Mouse newMouse = Instantiate(mousePrefab, transform.position // REMPLACER
@@ -119,4 +108,5 @@ public class ShopManager : MonoBehaviour
         
         newMouse.Init(definition);
     }
+    
 }

@@ -9,7 +9,7 @@ public class ShopItem : MonoBehaviour
 {
     private MouseDefinition _def;
     private GameObject _slotPrefab;
-
+    private ShopManager _shopManager;
     public void SetMouseDefinition(MouseDefinition def)
     {
         _def = def;
@@ -33,6 +33,5 @@ public class ShopItem : MonoBehaviour
         }
         GetComponentInChildren<Image>().sprite = GetPicto();
         GetComponentInChildren<TextMeshProUGUI>().text = GetPrice();
-        
     }
 }
