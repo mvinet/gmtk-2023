@@ -12,7 +12,7 @@ public class Cat : Entity<CatDefinition>
         Init(definition);
     }
 
-    private void Start()
+    public override void Start()
     {
         base.Start();
         health = PlayUIManager.instance.healthBar;

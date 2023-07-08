@@ -8,7 +8,7 @@ public class Mouse : Entity<MouseDefinition>
     private static readonly int Attack1 = Animator.StringToHash("Attack");
     private static readonly int Death = Animator.StringToHash("Death");
 
-    private void Start()
+    public override void Start()
     {
         base.Start();
         Init(definition);

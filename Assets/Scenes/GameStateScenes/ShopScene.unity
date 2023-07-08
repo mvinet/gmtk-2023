@@ -360,6 +360,7 @@ MonoBehaviour:
   currencyManager: {fileID: 1575325042}
   shopUi: {fileID: 1801875603}
   shopSlotPrefab: {fileID: 1898661246869385437, guid: 264c1a585b0f1a14ba60419cb93e43c2, type: 3}
+  mousePrefab: {fileID: 7306036937272554891, guid: 16da10da7769f9040a83696649403927, type: 3}
 --- !u!4 &1488891332
 Transform:
   m_ObjectHideFlags: 0

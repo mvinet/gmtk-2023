@@ -17,7 +17,7 @@ public abstract class Entity : MonoBehaviour
     public Entity target;
 
 
-    public void Start()
+    public virtual void Start()
     {
         PlayStateManager.instance.entities.Add(this);
     }
