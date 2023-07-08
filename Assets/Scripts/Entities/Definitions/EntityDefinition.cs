@@ -7,5 +7,8 @@ public abstract class EntityDefinition : ScriptableObject
     public int attackDamage;
     public float attackSpeed;
     public float attackRange;
-    
+
+    public string name;
+    public string description;
+
 }
