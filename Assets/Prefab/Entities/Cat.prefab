@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 356134453763691925}
   - component: {fileID: 2785258806963439624}
   - component: {fileID: 4787595969857144437}
+  - component: {fileID: 835079604819403283}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Cat
@@ -106,3 +107,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &835079604819403283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8491669602308391833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f243979739db9824ea4b4ea53a5b2a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  definition: {fileID: 11400000, guid: d57a06c79cd1fe5439798b3ec38f2681, type: 2}
+  initialPosition: {x: 0, y: 0}
+  currentHp: 0
+  currentAttackDamage: 0
+  currentCooldown: 0
+  currentAttackRange: 0
