@@ -7,10 +7,8 @@ using UnityEngine.SceneManagement;
 
 public enum SceneLayer
 {
-    StandAlone,
-    GameState, //MENU OU GAME
-    SubGameState, // JEU OU EDITOR
-    LevelScene, // NIVEAU QUI SCROLL
+    StandAlone = 0,
+    GameState = 1, //MENU OU GAME
 }
 
 public class ScenesManager
@@ -24,8 +22,6 @@ public class ScenesManager
             case SceneLayer.StandAlone:
                 return false;
             case SceneLayer.GameState:
-            case SceneLayer.SubGameState:
-            case SceneLayer.LevelScene:
                 return true;
             default:
                 throw new ArgumentOutOfRangeException(nameof(layer), layer, null);
@@ -36,9 +32,9 @@ public class ScenesManager
     {
         if (isLayerUnique(sceneLayer))
         {
-            if (openedScenes.ContainsKey(sceneLayer))
+            if (openedScenes.TryGetValue(sceneLayer, out var scene))
             {
-                UnloadScene(openedScenes[sceneLayer]);
+                UnloadScene(scene);
             }
 
             openedScenes[sceneLayer] = sceneName;

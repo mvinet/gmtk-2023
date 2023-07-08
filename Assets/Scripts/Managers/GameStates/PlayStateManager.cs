@@ -9,7 +9,7 @@ public class PlayStateManager : MonoBehaviour
     
     private void Awake()
     {
-        ScenesManager.LoadScene(SceneLayer.SubGameState,LevelEditorSubStateManager.sceneName);
+        
     }
     
     
