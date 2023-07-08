@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5657136001113931124}
   m_Layer: 0
   m_Name: Mouse
-  m_TagString: Untagged
+  m_TagString: Mouse
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7306036937272554891
 MonoBehaviour:
@@ -45,11 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2595f7ffdec0c4583b5c869942cf8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  definition: {fileID: 0}
+  definition: {fileID: 11400000, guid: b3ea4798b5dd10b4194be822d5184a30, type: 2}
   currentHp: 0
   currentAttackDamage: 0
   currentCooldown: 0
   currentAttackRange: 0
+  moveSpeed: 1
 --- !u!212 &5657136001113931124
 SpriteRenderer:
   m_ObjectHideFlags: 0

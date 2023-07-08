@@ -3,10 +3,12 @@ using UnityEngine;
 public class Mouse : Entity<MouseDefinition>
 {
     private GameObject cat;
-
+    private SpriteRenderer _spriteRenderer;
+    
     private void Start()
     {
         cat = GameObject.FindWithTag("Cat");
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -16,5 +18,7 @@ public class Mouse : Entity<MouseDefinition>
             cat.transform.position,
             Time.deltaTime * moveSpeed
         );
+
+        _spriteRenderer.flipX = cat.transform.position.x < transform.position.x;
     }
 }
