@@ -1,15 +1,16 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using Button = UnityEngine.UIElements.Button;
 
 
-public class ShopItem : MonoBehaviour
+
+public class ShopItem : MonoBehaviour, IPointerDownHandler, IDragHandler, IEndDragHandler, IBeginDragHandler
 {
     private MouseDefinition _def;
     private GameObject _slotPrefab;
-    private ShopManager _shopManager;
+    private Transform posBeforeDrag;
     public void SetMouseDefinition(MouseDefinition def)
     {
         _def = def;
@@ -33,5 +34,37 @@ public class ShopItem : MonoBehaviour
         }
         GetComponentInChildren<Image>().sprite = GetPicto();
         GetComponentInChildren<TextMeshProUGUI>().text = GetPrice();
+    }
+
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (! ShopManager.INSTANCE.CanBuyMouse(_def))
+        {
+            //playSound(NO)
+        }
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        transform.position = eventData.position;
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        if (ShopManager.INSTANCE.CanBuyMouse(_def))
+        {
+            ShopManager.INSTANCE.BuyMouse(_def);    
+        }
+        else
+        {
+            gameObject.transform.position = posBeforeDrag.position;
+        }
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        
+        posBeforeDrag = transform; // Save starting position
     }
 }

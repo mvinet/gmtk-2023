@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class ShopManager : MonoBehaviour
 {
     public static string sceneName = "ShopScene";
+    public static ShopManager INSTANCE;
     public int shopRefreshCost;
     public int shopSize;
     public MouseDefinition[] allMice;
@@ -17,7 +18,8 @@ public class ShopManager : MonoBehaviour
     private List<MouseDefinition> _currentShopContent;
     public Mouse mousePrefab;
 
-
+    
+    
     private void Awake()
     {
         allMice = Resources.LoadAll<MouseDefinition>("Data/Entities/Mice");
@@ -29,6 +31,8 @@ public class ShopManager : MonoBehaviour
             slot.GetComponent<ShopItem>().SetMouseDefinition(_currentShopContent[i]);
             slot.GetComponent<ShopItem>().Refresh();
         }
+
+        INSTANCE = this;
     }
 
     private List<MouseDefinition> GetRandomShopContent()
@@ -108,5 +112,9 @@ public class ShopManager : MonoBehaviour
         
         newMouse.Init(definition);
     }
-    
+
+    public bool CanBuyMouse(MouseDefinition def)
+    {
+        return currencyManager.hasEnoughCurrency((int)def.rarity);
+    }
 }
