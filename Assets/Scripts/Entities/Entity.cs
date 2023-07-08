@@ -11,6 +11,7 @@ public abstract class Entity<T> : MonoBehaviour where T : EntityDefinition
     public int currentAttackDamage;
     public float currentCooldown;
     public float currentAttackRange;
+    public float moveSpeed;
 
     public void ReloadDefinition()
     {
@@ -18,5 +19,6 @@ public abstract class Entity<T> : MonoBehaviour where T : EntityDefinition
         currentAttackDamage = definition.attackDamage;
         currentCooldown = 0f;
         currentAttackRange = definition.attackRange;
+        moveSpeed = definition.moveSpeed;
     }
 }
