@@ -19,6 +19,7 @@ public abstract class Entity<T> : MonoBehaviour where T : EntityDefinition
     {
         this.definition = definition;
         initialPosition = transform.position;
+        ReloadDefinition();
     }
     public void ReloadDefinition()
     {

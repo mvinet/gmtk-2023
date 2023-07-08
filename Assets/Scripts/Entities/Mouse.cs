@@ -6,6 +6,7 @@ public class Mouse : Entity<MouseDefinition>
 
     private void Start()
     {
+        Init(definition);
         cat = GameObject.FindWithTag("Cat");
     }
 
