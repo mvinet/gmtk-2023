@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;
 
 public enum SceneLayer
 {
-    StandAlone = 0,
+    StandAlone = 2,
     GameState = 1, //MENU OU GAME
+    UI = 0
 }
 
 public class ScenesManager
@@ -23,6 +24,8 @@ public class ScenesManager
                 return false;
             case SceneLayer.GameState:
                 return true;
+            case SceneLayer.UI:
+                return false;
             default:
                 throw new ArgumentOutOfRangeException(nameof(layer), layer, null);
         }
@@ -32,10 +35,15 @@ public class ScenesManager
     {
         if (isLayerUnique(sceneLayer))
         {
-            if (openedScenes.TryGetValue(sceneLayer, out var scene))
+            for (int i = 0; i <= (int)sceneLayer; i++)
             {
-                UnloadScene(scene);
+                var currentLayer = (SceneLayer)i;
+                if (openedScenes.TryGetValue(currentLayer, out var scene))
+                {
+                    UnloadScene(scene);
+                }
             }
+            
 
             openedScenes[sceneLayer] = sceneName;
         }

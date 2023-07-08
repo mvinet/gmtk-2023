@@ -1,9 +1,14 @@
 using System;
+using System;
 using System.Linq;
 using UnityEngine;
 
 public class Cat : Entity<CatDefinition>
 {
+    private void Awake()
+    {
+        Init(this.definition);
+    }
     
     private void FixedUpdate()
     {
