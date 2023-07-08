@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "entity/cat",fileName = "CatDefinition")]
 public class CatDefinition : EntityDefinition
 {
-    
+    public int currencyLoot;
 }

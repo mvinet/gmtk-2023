@@ -269,6 +269,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentMode: 0
+  currentLevel: 1
+  catDefinitions: []
+  cat: {fileID: 0}
   entities: []
 --- !u!4 &1337586027 stripped
 Transform:
