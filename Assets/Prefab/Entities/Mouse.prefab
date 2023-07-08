@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8180751285781648735}
   - component: {fileID: 7306036937272554891}
   - component: {fileID: 1068640546507080448}
-  - component: {fileID: 3169004679919085050}
   - component: {fileID: 1108015033986404154}
   - component: {fileID: 1726969408040023381}
+  - component: {fileID: 1264581067617311187}
   m_Layer: 0
   m_Name: Mouse
   m_TagString: Mouse
@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7306036937272554891
 MonoBehaviour:
@@ -48,13 +48,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2595f7ffdec0c4583b5c869942cf8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  definition: {fileID: 11400000, guid: b3ea4798b5dd10b4194be822d5184a30, type: 2}
   initialPosition: {x: 0, y: 0}
   currentHp: 0
   currentAttackDamage: 0
   currentCooldown: 0
+  currentAttackSpeed: 0
   currentAttackRange: 0
   moveSpeed: 1
+  target: {fileID: 0}
+  definition: {fileID: 11400000, guid: b3ea4798b5dd10b4194be822d5184a30, type: 2}
 --- !u!212 &1068640546507080448
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -107,27 +109,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &3169004679919085050
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3056559262532580760}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d9d228ac66e40e54795f9f6913aa1f9d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!61 &1108015033986404154
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -200,3 +181,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &1264581067617311187
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3056559262532580760}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9d228ac66e40e54795f9f6913aa1f9d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
