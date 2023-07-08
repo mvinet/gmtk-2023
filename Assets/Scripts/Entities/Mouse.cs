@@ -10,6 +10,7 @@ public class Mouse : Entity<MouseDefinition>
 
     private void Start()
     {
+        base.Start();
         Init(definition);
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
@@ -18,7 +19,8 @@ public class Mouse : Entity<MouseDefinition>
 
     private void FixedUpdate()
     {
-        
+        if (PlayStateManager.instance.currentMode != PlayMode.Play)
+            return;
         transform.position = Vector3.MoveTowards(
             transform.position,
             target.transform.position,
@@ -30,6 +32,8 @@ public class Mouse : Entity<MouseDefinition>
 
     public override void Die()
     {
+        base.Die();
+        PlayStateManager.instance.entities.Remove(this);
         Debug.Log(name + " is dead, RIP IN PEACE LIttlE SOURIS");
         _animator.ResetTrigger(Attack1);
         _animator.SetTrigger(Death);

@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 public class ShopManager : MonoBehaviour
 {
+    public static string sceneName = "ShopScene";
     public int shopRefreshCost;
     public int shopSize;
     public MouseDefinition[] allMice;
@@ -14,6 +15,8 @@ public class ShopManager : MonoBehaviour
     public GameObject shopUi;
     public GameObject shopSlotPrefab;
     private List<MouseDefinition> _currentShopContent;
+    public Mouse mousePrefab;
+
 
     private void Awake()
     {
@@ -64,23 +67,23 @@ public class ShopManager : MonoBehaviour
         return Rarity.NORMAL;
     }
 
-    public void onFightRoundEnd()
+    public void OnFightRoundEnd()
     {
         _currentShopContent = GetRandomShopContent();
-        refreshShopUi(_currentShopContent);
+        RefreshShopUi(_currentShopContent);
     }
 
-    public void refreshShop()
+    public void RefreshShop()
     {
         if (currencyManager.hasEnoughCurrency(shopRefreshCost))
         {
             _currentShopContent = GetRandomShopContent();
             currencyManager.useCurrency(shopRefreshCost);
-            refreshShopUi(_currentShopContent);
+            RefreshShopUi(_currentShopContent);
         } // else display error ? Disable refresh button if available currency < shopRefreshCost
     }
 
-    public void refreshShopUi(List<MouseDefinition> definitions)
+    public void RefreshShopUi(List<MouseDefinition> definitions)
     {
         var shopItems = shopUi.GetComponentsInChildren<ShopItem>();
         int i = 0;
@@ -107,5 +110,13 @@ public class ShopManager : MonoBehaviour
         }
 
         Debug.Log(debugString);
+    }
+
+    public void BuyMouse(MouseDefinition definition)
+    {
+        Mouse newMouse = Instantiate(mousePrefab, transform.position // REMPLACER
+            , Quaternion.identity, PlayStateManager.instance.mouseContainer);
+        
+        newMouse.Init(definition);
     }
 }

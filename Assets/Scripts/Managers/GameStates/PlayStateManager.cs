@@ -18,6 +18,7 @@ public class PlayStateManager : MonoBehaviour
     public int currentLevel = 0;
 
     public List<CatDefinition> catDefinitions;
+    public Transform mouseContainer;
 
     public Cat cat;
     public List<Entity> entities = new();
@@ -27,6 +28,7 @@ public class PlayStateManager : MonoBehaviour
         instance = this;
         currentMode = PlayMode.Shop;
         ScenesManager.LoadScene(SceneLayer.UI,PlayUIManager.sceneName);
+        ScenesManager.LoadScene(SceneLayer.UI,ShopManager.sceneName);
     }
 
     public void ChangeMode()
@@ -40,8 +42,8 @@ public class PlayStateManager : MonoBehaviour
     }
     public void EndWave()
     {
-        StartNewWave();
         ChangeMode();
+        StartNewWave();
     }
 
     public void ReloadEntities()

@@ -16,8 +16,16 @@ public abstract class Entity : MonoBehaviour
 
     public Entity target;
 
+
+    public void Start()
+    {
+        PlayStateManager.instance.entities.Add(this);
+    }
+
     private void Update()
     {
+        if (PlayStateManager.instance.currentMode != PlayMode.Play)
+            return;
         currentCooldown -= Time.deltaTime;
         if (target == null)
             return;
@@ -55,7 +63,7 @@ public abstract class Entity<T> : Entity where T : EntityDefinition
     public void Init(T definition)
     {
         this.definition = definition;
-        initialPosition = transform.position;
+        initialPosition = new Vector2(transform.position.x,transform.position.y);
         ReloadDefinition();
     }
 

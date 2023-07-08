@@ -14,12 +14,14 @@ public class Cat : Entity<CatDefinition>
 
     private void Start()
     {
+        base.Start();
         health = PlayUIManager.instance.healthBar;
-        PlayStateManager.instance.entities.Add(this);
     }
 
     private void FixedUpdate()
     {
+        if (PlayStateManager.instance.currentMode != PlayMode.Play)
+            return;
         health.fillAmount = currentHp / (float) definition.hp;
         
         var pos = transform.position;
