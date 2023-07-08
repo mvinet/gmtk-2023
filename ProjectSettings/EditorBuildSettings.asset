@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/GameStateScenes/PlayScene.unity
     guid: f9b70fa6e2f5f0e48808561215e9e7d9
   - enabled: 0
-    path: Assets/Scenes/GameStateScenes/GameSubStateScenes/LevelEditorScene.unity
+    path: Assets/Scenes/LevelEditorScene.unity
     guid: fb8b060784bd9dc44a1e6a807183fcfb
   - enabled: 1
     path: Assets/Scenes/GameStateScenes/MenuScene.unity

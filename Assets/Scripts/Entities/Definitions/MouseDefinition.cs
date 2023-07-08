@@ -4,4 +4,5 @@ using UnityEngine;
 public class MouseDefinition : EntityDefinition
 {
     public Rarity rarity;
+    public Sprite picto;
 }
