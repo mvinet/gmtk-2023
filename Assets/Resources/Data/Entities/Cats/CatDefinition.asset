@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CatDefinition
   m_EditorClassIdentifier: 
   hp: 10
+  moveSpeed: 1
   attackDamage: 1
   attackSpeed: 1
   attackRange: 1
