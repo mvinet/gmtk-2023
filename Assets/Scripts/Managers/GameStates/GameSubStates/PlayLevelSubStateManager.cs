@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class PlayLevelSubStateManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static string sceneName = "MenuScene";
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

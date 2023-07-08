@@ -1,18 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayStateManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static string sceneName = "PlayScene";
+    
+    private void Awake()
     {
-        
+        ScenesManager.LoadScene(SceneLayer.SubGameState,LevelEditorSubStateManager.sceneName);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+    
 }
