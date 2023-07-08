@@ -5,19 +5,20 @@ namespace UI
 {
     public class TooltipManager : MonoBehaviour
     {
-        public static TooltipManager _instance;
+        public static TooltipManager Instance;
 
-        public TextMeshProUGUI textComponent;
+        public TextMeshProUGUI headerField;
+        public TextMeshProUGUI contentField;
         
         private void Awake()
         {
-            if (_instance != null && _instance != this)
+            if (Instance != null && Instance != this)
             {
                 Destroy(gameObject);
             }
             else
             {
-                _instance = this;
+                Instance = this;
             }
         }
 
@@ -34,16 +35,18 @@ namespace UI
             transform.position = Input.mousePosition;
         }
 
-        public void SetAndShowTooltip(string message)
+        public void SetAndShowTooltip(string message, string[] descriptions)
         {
             gameObject.SetActive(true);
-            textComponent.text = message;
+            headerField.text = message;
+
+            contentField.text = string.Join("\n", descriptions);
         }
 
         public void HideTooltip()
         {
             gameObject.SetActive(false);
-            textComponent.text = string.Empty;
+            headerField.text = string.Empty;
         }
     }
 }

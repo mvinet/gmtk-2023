@@ -10,12 +10,17 @@ namespace UI
 
         private void OnMouseEnter()
         {
-            TooltipManager._instance.SetAndShowTooltip(definition.name);
+            TooltipManager.Instance.SetAndShowTooltip(definition.name, new []
+            {
+                "It's a bad cat",
+                "He keep all the cheese",
+                "UwU"
+            });
         }
 
         private void OnMouseExit()
         {
-            TooltipManager._instance.HideTooltip();
+            TooltipManager.Instance.HideTooltip();
         }
     }
 }
