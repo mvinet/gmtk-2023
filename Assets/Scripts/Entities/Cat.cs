@@ -1,8 +1,12 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Cat : Entity<CatDefinition>
 {
+    [SerializeField]
+    private Image health;
+    
     private void Awake()
     {
         Init(definition);
@@ -10,6 +14,10 @@ public class Cat : Entity<CatDefinition>
 
     private void FixedUpdate()
     {
+        health.fillAmount = currentHp / (float) definition.hp;
+        
+        Debug.Log(currentHp / definition.hp);
+        
         var pos = transform.position;
         var minDistance = float.PositiveInfinity;
         GameObject target = null;
