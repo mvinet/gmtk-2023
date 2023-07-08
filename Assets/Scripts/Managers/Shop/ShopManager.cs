@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 
@@ -16,12 +14,18 @@ public class ShopManager : MonoBehaviour
     public GameObject shopUi;
     public GameObject shopSlotPrefab;
     private List<MouseDefinition> _currentShopContent;
-    
+
     private void Awake()
     {
         allMice = Resources.LoadAll<MouseDefinition>("Data/Entities/Mice");
-        var chosenMice = GetRandomShopContent();
-        refreshShopUi(chosenMice);
+        _currentShopContent = GetRandomShopContent();
+        // initialize UI
+        for (int i = 0; i < shopSize; i++)
+        {
+            var slot = Instantiate(shopSlotPrefab, shopUi.transform, true);
+            slot.GetComponent<ShopItem>().SetMouseDefinition(_currentShopContent[i]);
+            slot.GetComponent<ShopItem>().Refresh();
+        }
     }
 
     private List<MouseDefinition> GetRandomShopContent()
@@ -74,22 +78,34 @@ public class ShopManager : MonoBehaviour
             currencyManager.useCurrency(shopRefreshCost);
             refreshShopUi(_currentShopContent);
         } // else display error ? Disable refresh button if available currency < shopRefreshCost
-        
     }
 
     public void refreshShopUi(List<MouseDefinition> definitions)
     {
-        var shopBar = shopUi.GetComponent<Image>().transform;
-        foreach (var shopDefinition in definitions)
+        var shopItems = shopUi.GetComponentsInChildren<ShopItem>();
+        int i = 0;
+        foreach (var mouse in definitions)
         {
-            var slot = Instantiate(shopSlotPrefab, shopBar, true);
-            slot.GetComponent<ShopItem>().SetMouseDefinition(shopDefinition);
-            slot.GetComponent<ShopItem>().Refresh();
+            if (i > shopItems.Length)
+            {
+                Debug.Log("On a plus d'objet à ajouter que de place dans le shop");
+                i %= shopItems.Length;
+            }
+
+            shopItems[i].SetMouseDefinition(mouse);
+            shopItems[i].Refresh();
+            i++;
         }
     }
 
     public void DebugShopContent()
     {
-        Debug.Log(_currentShopContent);
+        String debugString = "";
+        foreach (var md in _currentShopContent)
+        {
+            debugString += " " + md.name + "| ";
+        }
+
+        Debug.Log(debugString);
     }
 }

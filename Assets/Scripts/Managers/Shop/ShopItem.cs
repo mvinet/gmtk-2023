@@ -1,4 +1,5 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Button = UnityEngine.UIElements.Button;
@@ -30,10 +31,8 @@ public class ShopItem : MonoBehaviour
         {
             transform.GetChild(i).gameObject.SetActive(true);
         }
-        var image = GetComponentInChildren<Image>();
-        image.sprite = GetPicto();
-        // Todo find how to add TextMeshProUGUI
-        // _textPrice = GetComponentInChildren<TextMeshProUGUI>();
-        // _textPrice.text = $"{GetPrice()}";
+        GetComponentInChildren<Image>().sprite = GetPicto();
+        GetComponentInChildren<TextMeshProUGUI>().text = GetPrice();
+        
     }
 }
