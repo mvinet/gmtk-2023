@@ -20,12 +20,13 @@ public class PlayStateManager : MonoBehaviour
     public List<CatDefinition> catDefinitions;
 
     public Cat cat;
-    public List<Entity<EntityDefinition>> entities = new();
+    public List<Entity> entities = new();
 
     public void Awake()
     {
         instance = this;
         currentMode = PlayMode.Shop;
+        ScenesManager.LoadScene(SceneLayer.UI,PlayUIManager.sceneName);
     }
 
     public void ChangeMode()

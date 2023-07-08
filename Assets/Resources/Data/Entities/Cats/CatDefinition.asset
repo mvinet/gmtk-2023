@@ -16,4 +16,5 @@ MonoBehaviour:
   moveSpeed: 1
   attackDamage: 1
   attackSpeed: 1
-  attackRange: 1
+  attackRange: 3
+  currencyLoot: 0

@@ -17,10 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameStateScenes/MenuScene.unity
     guid: f500fc36ca860d74dba04d27182b4cf1
-  - enabled: 0
-    path: Assets/Scenes/Levels/Level1.unity
-    guid: 9592f14d3fe9a6d48ba672fcfad6fcae
-  - enabled: 0
-    path: Assets/Scenes/GameStateScenes/GameSubStateScenes/PlayModeScene.unity
-    guid: 684fd3d3583652d43813c3837533e0ec
+  - enabled: 1
+    path: Assets/Scenes/GameStateScenes/UI/PlayUIScene.unity
+    guid: 816f1f03a3482e84a9431aaa4cc8f82b
   m_configObjects: {}

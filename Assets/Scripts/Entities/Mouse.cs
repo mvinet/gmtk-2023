@@ -2,24 +2,28 @@ using UnityEngine;
 
 public class Mouse : Entity<MouseDefinition>
 {
-    private GameObject cat;
     private SpriteRenderer _spriteRenderer;
-    
+
     private void Start()
     {
         Init(definition);
-        cat = GameObject.FindWithTag("Cat");
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        target = PlayStateManager.instance.cat;
     }
 
     private void FixedUpdate()
     {
         transform.position = Vector3.MoveTowards(
             transform.position,
-            cat.transform.position,
+            target.transform.position,
             Time.deltaTime * moveSpeed
         );
 
-        _spriteRenderer.flipX = cat.transform.position.x < transform.position.x;
+        _spriteRenderer.flipX = target.transform.position.x < transform.position.x;
+    }
+
+    public override void Die()
+    {
+        Destroy(gameObject);
     }
 }

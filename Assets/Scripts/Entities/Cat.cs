@@ -12,15 +12,18 @@ public class Cat : Entity<CatDefinition>
         Init(definition);
     }
 
+    private void Start()
+    {
+        health = PlayUIManager.instance.healthBar;
+        PlayStateManager.instance.entities.Add(this);
+    }
+
     private void FixedUpdate()
     {
         health.fillAmount = currentHp / (float) definition.hp;
         
-        Debug.Log(currentHp / definition.hp);
-        
         var pos = transform.position;
         var minDistance = float.PositiveInfinity;
-        GameObject target = null;
 
         foreach (var obj in GameObject.FindGameObjectsWithTag("Mouse"))
         {
@@ -28,7 +31,7 @@ public class Cat : Entity<CatDefinition>
             if (distance >= minDistance) continue;
 
             minDistance = distance;
-            target = obj;
+            target = obj.GetComponent<Mouse>();
         }
 
         if (target == null) return;
@@ -40,8 +43,9 @@ public class Cat : Entity<CatDefinition>
         );
     }
 
-    public void OnDeath()
+    public override void Die()
     {
+        Debug.Log("Cat is dead");
         PlayStateManager.instance.EndWave();
     }
 }
