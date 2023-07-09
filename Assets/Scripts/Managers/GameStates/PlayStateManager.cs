@@ -60,4 +60,9 @@ public class PlayStateManager : MonoBehaviour
         currentLevel++;
         cat.Init(catDefinitions[currentLevel]);
     }
+
+    public void OnEntityDeath(Entity deadEntity)
+    {
+        entities.Remove(deadEntity);
+    }
 }

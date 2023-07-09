@@ -17,7 +17,8 @@ public class Mouse : Entity<MouseDefinition>
     public override void Die()
     {
         base.Die();
-        PlayStateManager.instance.entities.Remove(this);
+        PlayStateManager.instance.OnEntityDeath(this);
+        
         Debug.Log(name + " is dead, RIP IN PEACE LIttlE SOURIS");
         _animator.Play("mouse-death");
     }
