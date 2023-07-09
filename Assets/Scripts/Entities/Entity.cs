@@ -122,7 +122,7 @@ public abstract class Entity<T> : Entity where T : EntityDefinition
         content.Add("Attack Damage : " + definition.hp);
         content.Add("Speed : " + definition.moveSpeed);
 
-        TooltipManager.Instance.SetAndShowTooltip(definition.name, content.ToArray());
+        TooltipManager.Instance.SetAndShowTooltip(definition.entityName, content.ToArray());
     }
 
     private void OnMouseExit()

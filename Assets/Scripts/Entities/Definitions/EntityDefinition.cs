@@ -9,7 +9,7 @@ public abstract class EntityDefinition : ScriptableObject
     public float attackSpeed;
     public float attackRange;
 
-    public string name;
+    public string entityName;
     public string description;
 
 }

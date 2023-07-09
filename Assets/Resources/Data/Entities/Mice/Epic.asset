@@ -17,7 +17,7 @@ MonoBehaviour:
   attackDamage: 4
   attackSpeed: 4
   attackRange: 4
-  name: Speedy Gonzales
+  entityName: Speedy Gonzales
   description: Ay caramba !
   rarity: 10
   picto: {fileID: 21300000, guid: 7558eeef73cef37409b7594bb3213b83, type: 3}

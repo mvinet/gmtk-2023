@@ -17,6 +17,6 @@ MonoBehaviour:
   attackDamage: 1
   attackSpeed: 1
   attackRange: 3
-  name: Tom
+  entityName: Tom
   description: 
   currencyLoot: 0
