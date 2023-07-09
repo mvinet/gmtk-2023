@@ -10,7 +10,7 @@ namespace UI
 
         public TextMeshProUGUI headerField;
         public TextMeshProUGUI contentField;
-        
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -39,7 +39,7 @@ namespace UI
         public void SetEntityDefinitionTooltip(EntityDefinition definition)
         {
             gameObject.SetActive(true);
-            
+
             var content = new List<string>();
 
             if (definition.description != "")
@@ -53,9 +53,15 @@ namespace UI
             content.Add("Attack Speed : " + definition.attackSpeed);
             content.Add("Attack Range : " + definition.attackRange);
             content.Add("Speed : " + definition.moveSpeed);
-            
-            headerField.text = definition.entityName;
+
             contentField.text = string.Join("\n", content);
+
+            headerField.text = definition.entityName;
+
+            if (definition is MouseDefinition mouseDefinition)
+            {
+                headerField.color = RarityColorMapper.getColorForRarity(mouseDefinition.rarity);
+            }
         }
 
         public void HideTooltip()
