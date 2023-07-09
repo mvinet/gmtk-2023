@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd26f3803a334d847982a8acade6e957, type: 3}
   m_Name: Cat5
   m_EditorClassIdentifier: 
-  hp: 50
+  hp: 80
   moveSpeed: 1
   attackDamage: 2
   attackSpeed: 1.3

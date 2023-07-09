@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd26f3803a334d847982a8acade6e957, type: 3}
   m_Name: Cat9
   m_EditorClassIdentifier: 
-  hp: 200
+  hp: 500
   moveSpeed: 1
   attackDamage: 3
   attackSpeed: 3

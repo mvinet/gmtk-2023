@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd26f3803a334d847982a8acade6e957, type: 3}
   m_Name: Cat1
   m_EditorClassIdentifier: 
-  hp: 3
+  hp: 5
   moveSpeed: 1
   attackDamage: 1
-  attackSpeed: 0.3
+  attackSpeed: 0.25
   attackRange: 3
   entityName: Tom
   description: First Life

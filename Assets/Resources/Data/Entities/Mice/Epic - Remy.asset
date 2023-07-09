@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1275a2a95ad3e4c877e2afcee1388e, type: 3}
   m_Name: Epic - Remy
   m_EditorClassIdentifier: 
-  hp: 8
+  hp: 10
   moveSpeed: 2
   attackDamage: 4
   attackSpeed: 2
@@ -23,5 +23,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0bbd721324437c94da095d0ad1a8dfdc, type: 2}
   rarity: 10
   picto: {fileID: 21300000, guid: 7558eeef73cef37409b7594bb3213b83, type: 3}
-  price: 10
+  price: 20
   color: {r: 0.78431374, g: 0.6313726, b: 0.9372549, a: 1}

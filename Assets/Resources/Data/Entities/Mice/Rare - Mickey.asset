@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1275a2a95ad3e4c877e2afcee1388e, type: 3}
   m_Name: Rare - Mickey
   m_EditorClassIdentifier: 
-  hp: 3
+  hp: 5
   moveSpeed: 3
   attackDamage: 2
   attackSpeed: 2

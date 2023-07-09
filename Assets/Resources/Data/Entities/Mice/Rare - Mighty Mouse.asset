@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1275a2a95ad3e4c877e2afcee1388e, type: 3}
   m_Name: Rare - Mighty Mouse
   m_EditorClassIdentifier: 
-  hp: 6
+  hp: 8
   moveSpeed: 2
   attackDamage: 3
   attackSpeed: 1
