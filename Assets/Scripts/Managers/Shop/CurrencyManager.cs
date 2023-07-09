@@ -1,5 +1,4 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class CurrencyManager : MonoBehaviour
@@ -9,21 +8,21 @@ public class CurrencyManager : MonoBehaviour
 
     private void Awake()
     {
-        displayedCurrency.text = availableCurrency.ToString();
+        RefreshTextUi();
     }
 
-    public void addCurrency(int lootedMoney)
+    public void AddCurrency(int lootedMoney)
     {
         availableCurrency += lootedMoney;
-        displayedCurrency.text = availableCurrency.ToString();
+        RefreshTextUi();
     }
 
-    public bool hasEnoughCurrency(int requiredBudget)
+    public bool HasEnoughCurrency(int requiredBudget)
     {
         return availableCurrency >= requiredBudget;
     }
 
-    public bool useCurrency(int cost)
+    public bool UseCurrency(int cost)
     {
         if (cost > availableCurrency)
         {
@@ -31,7 +30,13 @@ public class CurrencyManager : MonoBehaviour
         }
 
         availableCurrency -= cost;
+        RefreshTextUi();
         return true;
+    }
+
+    private void RefreshTextUi()
+    {
+        displayedCurrency.text = availableCurrency.ToString();
     }
     
 }

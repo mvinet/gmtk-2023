@@ -4,64 +4,70 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-
-
-public class ShopItem : MonoBehaviour, IPointerDownHandler, IDragHandler, IEndDragHandler, IBeginDragHandler
+namespace Managers.Shop
 {
-    private MouseDefinition _def;
-    private GameObject _slotPrefab;
-    private Vector3 posBeforeDrag;
-    public void SetMouseDefinition(MouseDefinition def)
+    public class ShopItem : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
     {
-        _def = def;
-    }
-    
-    public String GetPrice()
-    {
-        return ((int)_def.rarity).ToString();
-    }
+        private MouseDefinition _def;
+        private GameObject _slotPrefab;
+        private Vector3 _posBeforeDrag;
 
-    public Sprite GetPicto()
-    {
-        return _def.picto;
-    }
-    
-    public void Refresh()
-    {
-        for (int i = 0; i < transform.childCount; i++)
+        public void SetMouseDefinition(MouseDefinition def)
         {
-            transform.GetChild(i).gameObject.SetActive(true);
+            _def = def;
         }
-        GetComponentInChildren<Image>().sprite = GetPicto();
-        GetComponentInChildren<TextMeshProUGUI>().text = GetPrice();
-    }
 
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        if (! ShopManager.INSTANCE.CanBuyMouse(_def))
+        public String GetPrice()
         {
-            //playSound(NO)
+            return ((int)_def.rarity).ToString();
         }
-    }
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        transform.position = eventData.position;
-    }
-
-    public void OnEndDrag(PointerEventData eventData) {
-        if (ShopManager.INSTANCE.CanBuyMouse(_def)) {
-            ShopManager.INSTANCE.BuyMouse(_def);    
-        } else
+        public Sprite GetPicto()
         {
-            gameObject.transform.position =  posBeforeDrag;
+            return _def.picto;
         }
-    }
 
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        
-        posBeforeDrag = transform.position; // Save starting position
+        public void Refresh()
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(true);
+            }
+
+            GetComponentInChildren<Image>().sprite = GetPicto();
+            GetComponentInChildren<TextMeshProUGUI>().text = GetPrice();
+        }
+
+
+        public void OnDrag(PointerEventData eventData)
+        {
+            transform.position = eventData.position;
+        }
+
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            if (ShopManager.INSTANCE.CanBuyMouse(_def))
+            {
+                // Buy will : Use currency, instantiate mouse in the play scene
+                
+                ShopManager.INSTANCE.BuyMouse(_def, Camera.main.ScreenToWorldPoint(eventData.position));
+                //This will destroy the shop item being dragged
+                Destroy(gameObject);
+            }
+            else
+            {
+                gameObject.transform.position = _posBeforeDrag;
+            }
+        }
+
+        public void OnBeginDrag(PointerEventData eventData)
+        {
+            if (!ShopManager.INSTANCE.CanBuyMouse(_def))
+            {
+                eventData.pointerDrag = null;
+            }
+
+            _posBeforeDrag = transform.position; // Save starting position
+        }
     }
 }

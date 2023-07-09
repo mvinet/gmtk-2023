@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Managers.Shop;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 
 public class ShopManager : MonoBehaviour
 {
-    public static string sceneName = "ShopScene";
+    public static string SceneName = "ShopScene";
     public static ShopManager INSTANCE;
     public int shopRefreshCost;
     public int shopSize;
@@ -25,14 +26,28 @@ public class ShopManager : MonoBehaviour
         allMice = Resources.LoadAll<MouseDefinition>("Data/Entities/Mice");
         _currentShopContent = GetRandomShopContent();
         // initialize UI
+        GenerateAllShopSlots();
+
+        INSTANCE = this;
+    }
+
+    private void GenerateAllShopSlots()
+    {
         for (int i = 0; i < shopSize; i++)
         {
             var slot = Instantiate(shopSlotPrefab, shopUi.transform, true);
             slot.GetComponent<ShopItem>().SetMouseDefinition(_currentShopContent[i]);
             slot.GetComponent<ShopItem>().Refresh();
         }
-
-        INSTANCE = this;
+    }
+    
+    private void DestroyAllRemainingShopSlots()
+    {
+        var componentsInChildren = shopUi.GetComponentsInChildren<ShopItem>();
+        foreach (var component in componentsInChildren)
+        {
+            Destroy(component.gameObject);
+        }
     }
 
     private List<MouseDefinition> GetRandomShopContent()
@@ -79,10 +94,11 @@ public class ShopManager : MonoBehaviour
 
     public void RefreshShop()
     {
-        if (currencyManager.hasEnoughCurrency(shopRefreshCost))
-        {
+        if (currencyManager.HasEnoughCurrency(shopRefreshCost)) {
+            DestroyAllRemainingShopSlots();
+            GenerateAllShopSlots();
             _currentShopContent = GetRandomShopContent();
-            currencyManager.useCurrency(shopRefreshCost);
+            currencyManager.UseCurrency(shopRefreshCost);
             RefreshShopUi(_currentShopContent);
         } // else display error ? Disable refresh button if available currency < shopRefreshCost
     }
@@ -95,7 +111,6 @@ public class ShopManager : MonoBehaviour
         {
             if (i > shopItems.Length)
             {
-                Debug.Log("On a plus d'objet à ajouter que de place dans le shop");
                 i %= shopItems.Length;
             }
 
@@ -105,16 +120,18 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    public void BuyMouse(MouseDefinition definition)
+    public void BuyMouse(MouseDefinition definition, Vector2 whereToSpawn)
     {
-        Mouse newMouse = Instantiate(mousePrefab, transform.position // REMPLACER
+        Mouse newMouse = Instantiate(mousePrefab, whereToSpawn
             , Quaternion.identity, PlayStateManager.instance.mouseContainer);
         
         newMouse.Init(definition);
+        
+        currencyManager.UseCurrency((int)definition.rarity);
     }
 
     public bool CanBuyMouse(MouseDefinition def)
     {
-        return currencyManager.hasEnoughCurrency((int)def.rarity);
+        return currencyManager.HasEnoughCurrency((int)def.rarity);
     }
 }
