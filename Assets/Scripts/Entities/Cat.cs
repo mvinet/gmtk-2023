@@ -52,7 +52,12 @@ public class Cat : Entity<CatDefinition>
     {
         Debug.Log("Cat is dead");
         _animator.Play("cat-death");
-        
+    }
+    
+    public override void Attack()
+    {
+        _animator.Play("cat-attack");
+        base.Attack();
     }
 
     public void OnCatDeathEvent()
