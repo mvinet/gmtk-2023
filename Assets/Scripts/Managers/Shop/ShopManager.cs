@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using Managers.Shop;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 
@@ -18,6 +20,7 @@ public class ShopManager : MonoBehaviour
     public GameObject shopSlotPrefab;
     private List<MouseDefinition> _currentShopContent;
     public Mouse mousePrefab;
+    public SceneAsset playScene;
 
     
     
@@ -121,14 +124,22 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    public void BuyMouse(MouseDefinition definition, Vector2 whereToSpawn)
+    public bool BuyMouse(ShopItem shopItem, Vector2 whereToSpawn)
     {
-        Mouse newMouse = Instantiate(mousePrefab, whereToSpawn
-            , Quaternion.identity, PlayStateManager.instance.mouseContainer);
+
+        var playScene = SceneManager.GetSceneByName(PlayStateManager.sceneName);
+        RaycastHit2D spawnZoneHit = playScene.GetPhysicsScene2D().Raycast(whereToSpawn, Vector2.down, 100000, LayerMask.NameToLayer("Spawn"));
+        if (spawnZoneHit.collider != null) {
+            Mouse newMouse = Instantiate(mousePrefab, whereToSpawn
+                , Quaternion.identity, PlayStateManager.instance.mouseContainer);
         
-        newMouse.Init(definition);
+            newMouse.Init(shopItem.GetMouseDefinition());
         
-        currencyManager.UseCurrency(definition.price);
+            currencyManager.UseCurrency(shopItem.GetMouseDefinition().price);
+            return true;
+        }
+        
+        return false;
     }
 
     public bool CanBuyMouse(MouseDefinition def)

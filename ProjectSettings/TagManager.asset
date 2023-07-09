@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Cat
   - Mouse
+  - SpawnZone
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Spawn
   - Water
   - UI
   - 
