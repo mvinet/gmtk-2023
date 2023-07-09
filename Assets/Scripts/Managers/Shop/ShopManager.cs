@@ -89,8 +89,7 @@ public class ShopManager : MonoBehaviour
 
     public void OnFightRoundEnd()
     {
-        _currentShopContent = GetRandomShopContent();
-        RefreshShopUi(_currentShopContent);
+        RefreshShop();
     }
 
     public void RefreshShop()
