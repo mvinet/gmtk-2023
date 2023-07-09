@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 1
   moveSpeed: 3
-  attackDamage: 3
+  attackDamage: 2
   attackSpeed: 0.3
   attackRange: 3
   entityName: Greedy
