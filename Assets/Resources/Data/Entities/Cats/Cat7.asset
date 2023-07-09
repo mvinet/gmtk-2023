@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 85
   moveSpeed: 1
-  attackDamage: 1
-  attackSpeed: 1.1
-  attackRange: 2
+  attackDamage: 3
+  attackSpeed: 1.5
+  attackRange: 3
   entityName: Tom
-  description: 
+  description: Seventh Life
   passives: []
   currencyLoot: 40

@@ -16,7 +16,7 @@ MonoBehaviour:
   moveSpeed: 2
   attackDamage: 2
   attackSpeed: 1
-  attackRange: 2
+  attackRange: 3
   entityName: Reepicheep
   description: 'Attack : +10% attack speed'
   passives:

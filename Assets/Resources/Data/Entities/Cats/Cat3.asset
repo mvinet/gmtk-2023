@@ -15,9 +15,9 @@ MonoBehaviour:
   hp: 20
   moveSpeed: 1
   attackDamage: 1
-  attackSpeed: 0.7
-  attackRange: 2
+  attackSpeed: 0.9
+  attackRange: 3
   entityName: Tom
-  description: 
+  description: Third Life
   passives: []
   currencyLoot: 20

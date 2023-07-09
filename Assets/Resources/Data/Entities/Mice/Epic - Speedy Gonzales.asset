@@ -16,7 +16,7 @@ MonoBehaviour:
   moveSpeed: 5
   attackDamage: 1
   attackSpeed: 3
-  attackRange: 2
+  attackRange: 3
   entityName: Speedy Gonzales
   description: 'Fight Start : +20% attack speed to all mice'
   passives:

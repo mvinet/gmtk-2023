@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 50
   moveSpeed: 1
-  attackDamage: 1
-  attackSpeed: 0.9
-  attackRange: 2
+  attackDamage: 2
+  attackSpeed: 1.3
+  attackRange: 3
   entityName: Tom
-  description: 
+  description: Fifth Life
   passives: []
   currencyLoot: 30

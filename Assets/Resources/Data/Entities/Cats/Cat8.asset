@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 110
   moveSpeed: 1
-  attackDamage: 1
-  attackSpeed: 1.2
-  attackRange: 2
+  attackDamage: 3
+  attackSpeed: 2
+  attackRange: 3
   entityName: Tom
-  description: 
+  description: Eigth Life
   passives: []
   currencyLoot: 45

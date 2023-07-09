@@ -16,7 +16,7 @@ MonoBehaviour:
   moveSpeed: 3
   attackDamage: 1
   attackSpeed: 1
-  attackRange: 2
+  attackRange: 3
   entityName: Mickey
   description: 'Death : Gives +100% attack speed to a random mouse'
   passives:

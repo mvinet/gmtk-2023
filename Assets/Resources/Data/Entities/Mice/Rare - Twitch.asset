@@ -16,7 +16,7 @@ MonoBehaviour:
   moveSpeed: 2
   attackDamage: 2
   attackSpeed: 1
-  attackRange: 6
+  attackRange: 8
   entityName: Twitch
   description: Attacks from afar
   passives: []

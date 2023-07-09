@@ -11,8 +11,10 @@ public class SpawnMouseEffect : Effect
         if (mousePool.Count == 0)
             return;
         var position = context.source.transform.position;
+        var spawnPosition = new Vector3(position.x += Random.Range(-.5f, .5f), position.y += Random.Range(-.5f, .5f),
+            position.z);
         var mouse = mousePool[Random.Range(0, mousePool.Count)];
-        Mouse newMouse = Instantiate(mousePrefab, position // REMPLACER
+        Mouse newMouse = Instantiate(mousePrefab, spawnPosition
             , Quaternion.identity, PlayStateManager.instance.mouseContainer);
         
         newMouse.Init(mouse);

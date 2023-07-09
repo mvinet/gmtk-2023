@@ -16,7 +16,7 @@ MonoBehaviour:
   moveSpeed: 2
   attackDamage: 1
   attackSpeed: 1
-  attackRange: 2
+  attackRange: 3
   entityName: Mighty Mouse
   description: He's really mighty
   passives: []
