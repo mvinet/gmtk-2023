@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UI;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public abstract class Entity : MonoBehaviour
 {
@@ -107,22 +103,7 @@ public abstract class Entity<T> : Entity where T : EntityDefinition
     
     private void OnMouseEnter()
     {
-        var content = new List<string>();
-
-        if (definition.description != "")
-        {
-            content.Add(definition.description);
-            content.Add("");
-        }
-
-        content.Add("Health : " + definition.hp);
-        content.Add("Attack Damage : " + definition.attackDamage);
-        content.Add("Attack Speed : " + definition.attackSpeed);
-        content.Add("Attack Range : " + definition.attackRange);
-        content.Add("Attack Damage : " + definition.hp);
-        content.Add("Speed : " + definition.moveSpeed);
-
-        TooltipManager.Instance.SetAndShowTooltip(definition.entityName, content.ToArray());
+        TooltipManager.Instance.SetEntityDefinitionTooltip(definition);
     }
 
     private void OnMouseExit()

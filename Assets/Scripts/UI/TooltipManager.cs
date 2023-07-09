@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -35,12 +36,27 @@ namespace UI
             transform.position = Input.mousePosition;
         }
 
-        public void SetAndShowTooltip(string message, string[] descriptions)
+        public void SetEntityDefinitionTooltip(EntityDefinition definition)
         {
             gameObject.SetActive(true);
-            headerField.text = message;
+            
+            var content = new List<string>();
 
-            contentField.text = string.Join("\n", descriptions);
+            if (definition.description != "")
+            {
+                content.Add(definition.description);
+                content.Add("");
+            }
+
+            content.Add("Health : " + definition.hp);
+            content.Add("Attack Damage : " + definition.attackDamage);
+            content.Add("Attack Speed : " + definition.attackSpeed);
+            content.Add("Attack Range : " + definition.attackRange);
+            content.Add("Attack Damage : " + definition.hp);
+            content.Add("Speed : " + definition.moveSpeed);
+            
+            headerField.text = definition.entityName;
+            contentField.text = string.Join("\n", content);
         }
 
         public void HideTooltip()
