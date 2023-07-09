@@ -52,7 +52,6 @@ namespace UI
             content.Add("Attack Damage : " + definition.attackDamage);
             content.Add("Attack Speed : " + definition.attackSpeed);
             content.Add("Attack Range : " + definition.attackRange);
-            content.Add("Attack Damage : " + definition.hp);
             content.Add("Speed : " + definition.moveSpeed);
             
             headerField.text = definition.entityName;
