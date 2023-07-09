@@ -128,7 +128,7 @@ Transform:
   m_Children:
   - {fileID: 3525616968707392496}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &835987630121011828
 PrefabInstance:
@@ -138,6 +138,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9187244522969637414}
     m_Modifications:
+    - target: {fileID: 3130872934077663777, guid: 8e687dbe19b9a4034b2a5252c2c83bd9, type: 3}
+      propertyPath: m_Color.rgba
+      value: 4279772159
+      objectReference: {fileID: 0}
     - target: {fileID: 7264393514652666798, guid: 8e687dbe19b9a4034b2a5252c2c83bd9, type: 3}
       propertyPath: m_Name
       value: FloatingText

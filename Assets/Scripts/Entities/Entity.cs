@@ -66,7 +66,7 @@ public abstract class Entity : MonoBehaviour
     public void DealDamage(int damage)
     {
 
-        if (fxDamages)
+        if (fxDamages && damage > 0)
         {
             var fx = Instantiate(fxDamages, transform.position, Quaternion.identity);
             fx.GetComponentInChildren<TextMesh>().text = damage.ToString();
