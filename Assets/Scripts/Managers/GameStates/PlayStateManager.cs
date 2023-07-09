@@ -67,7 +67,7 @@ public class PlayStateManager : MonoBehaviour
         entities.Remove(deadEntity);
         if (! entities.Find(e => e.GetType() == typeof(Mouse)))
         {
-            ScenesManager.LoadScene(SceneLayer.GameState, EndManager.sceneName);
+            ScenesManager.LoadScene(SceneLayer.UI, EndManager.sceneName);
         }
     }
 }

@@ -12,7 +12,7 @@ public enum SceneLayer
 
 public class ScenesManager
 {
-    private static Dictionary<SceneLayer, string> openedScenes = new();
+    private static Dictionary<SceneLayer, List<string>> openedScenes = new();
 
     private static bool isLayerUnique(SceneLayer layer)
     {
@@ -32,21 +32,25 @@ public class ScenesManager
             for (int i = 0; i <= (int)sceneLayer; i++)
             {
                 var currentLayer = (SceneLayer)i;
-                if (openedScenes.TryGetValue(currentLayer, out var scene))
-                {
-                    UnloadScene(scene);
-                }
+                UnloadAllLayerScenes(currentLayer);
             }
-            
-
-            openedScenes[sceneLayer] = sceneName;
         }
-        
+
+        if (!openedScenes.ContainsKey(sceneLayer))
+            openedScenes[sceneLayer] = new List<string>();
+        openedScenes[sceneLayer].Add(sceneName);
         SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
     }
 
-    private static void UnloadScene(string sceneName)
+    private static void UnloadAllLayerScenes(SceneLayer layer)
     {
-        SceneManager.UnloadSceneAsync(sceneName);
+        if(openedScenes.TryGetValue(layer, out var list))
+        {
+            foreach (var scene in list)
+            {
+                SceneManager.UnloadSceneAsync(scene);
+            }
+            openedScenes[layer].Clear();
+        }
     }
 }
