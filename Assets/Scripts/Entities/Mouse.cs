@@ -17,6 +17,7 @@ public class Mouse : Entity<MouseDefinition>
     public override void ReloadDefinition()
     {
         base.ReloadDefinition();
+        currentCooldown = 0;
         _spriteRenderer.color = definition.color;
     }
 

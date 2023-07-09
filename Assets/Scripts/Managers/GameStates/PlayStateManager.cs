@@ -23,6 +23,8 @@ public class PlayStateManager : MonoBehaviour
     public Cat cat;
     public List<Entity> entities = new();
 
+    public BoxCollider2D playAreaCollider;
+    
     public void Awake()
     {
         instance = this;

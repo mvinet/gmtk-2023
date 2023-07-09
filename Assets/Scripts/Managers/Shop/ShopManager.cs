@@ -22,8 +22,7 @@ public class ShopManager : MonoBehaviour
     public Mouse mousePrefab;
     public SceneAsset playScene;
 
-    
-    
+
     private void Awake()
     {
         instance = this;
@@ -44,7 +43,7 @@ public class ShopManager : MonoBehaviour
 
         instance = this;
     }
-    
+
     private void DestroyAllRemainingShopSlots()
     {
         var componentsInChildren = shopUi.GetComponentsInChildren<ShopItem>();
@@ -98,7 +97,8 @@ public class ShopManager : MonoBehaviour
 
     public void RefreshShop()
     {
-        if (currencyManager.HasEnoughCurrency(shopRefreshCost)) {
+        if (currencyManager.HasEnoughCurrency(shopRefreshCost))
+        {
             DestroyAllRemainingShopSlots();
             GenerateAllShopSlots();
             _currentShopContent = GetRandomShopContent();
@@ -126,20 +126,15 @@ public class ShopManager : MonoBehaviour
 
     public bool BuyMouse(ShopItem shopItem, Vector2 whereToSpawn)
     {
+        if (!PlayStateManager.instance.playAreaCollider.bounds.Contains(whereToSpawn))
+            return false;
+        Mouse newMouse = Instantiate(mousePrefab, whereToSpawn
+            , Quaternion.identity, PlayStateManager.instance.mouseContainer);
 
-        var playScene = SceneManager.GetSceneByName(PlayStateManager.sceneName);
-        RaycastHit2D spawnZoneHit = playScene.GetPhysicsScene2D().Raycast(whereToSpawn, Vector2.down, 100000, LayerMask.NameToLayer("Spawn"));
-        if (spawnZoneHit.collider != null) {
-            Mouse newMouse = Instantiate(mousePrefab, whereToSpawn
-                , Quaternion.identity, PlayStateManager.instance.mouseContainer);
-        
-            newMouse.Init(shopItem.GetMouseDefinition());
-        
-            currencyManager.UseCurrency(shopItem.GetMouseDefinition().price);
-            return true;
-        }
-        
-        return false;
+        newMouse.Init(shopItem.GetMouseDefinition());
+
+        currencyManager.UseCurrency(shopItem.GetMouseDefinition().price);
+        return true;
     }
 
     public bool CanBuyMouse(MouseDefinition def)
