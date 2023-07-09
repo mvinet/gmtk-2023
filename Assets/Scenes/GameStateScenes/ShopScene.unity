@@ -371,10 +371,10 @@ RectTransform:
   m_Father: {fileID: 1585739550}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 455.9, y: -479.1}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 455.90002, y: 67}
+  m_SizeDelta: {x: -1820, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &876044075
 MonoBehaviour:
@@ -634,11 +634,8 @@ MonoBehaviour:
   allMice: []
   currencyManager: {fileID: 1575325042}
   shopUi: {fileID: 1801875603}
-  shopSlotPrefab: {fileID: 1898661246869385437, guid: 264c1a585b0f1a14ba60419cb93e43c2,
-    type: 3}
-  mousePrefab: {fileID: 7306036937272554891, guid: 16da10da7769f9040a83696649403927,
-    type: 3}
-  playScene: {fileID: 0}
+  shopSlotPrefab: {fileID: 1898661246869385437, guid: 264c1a585b0f1a14ba60419cb93e43c2, type: 3}
+  mousePrefab: {fileID: 7306036937272554891, guid: 16da10da7769f9040a83696649403927, type: 3}
   RefreshScript: {fileID: 876044078}
 --- !u!4 &1488891332
 Transform:
@@ -840,10 +837,10 @@ RectTransform:
   m_Father: {fileID: 1585739550}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 9.3173, y: 66.43}
-  m_SizeDelta: {x: 779.8811, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 9.317261, y: 66.42999}
+  m_SizeDelta: {x: -1140.1189, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1801875605
 MonoBehaviour:
@@ -968,8 +965,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c1bdc537092604c3194d43856ec7d574, type: 2}
-  m_sharedMaterial: {fileID: -1442340851006390345, guid: c1bdc537092604c3194d43856ec7d574,
-    type: 2}
+  m_sharedMaterial: {fileID: -1442340851006390345, guid: c1bdc537092604c3194d43856ec7d574, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

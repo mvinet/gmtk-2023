@@ -38,7 +38,7 @@ public class ShopManager : MonoBehaviour
     {
         for (int i = 0; i < shopSize; i++)
         {
-            var slot = Instantiate(shopSlotPrefab, shopUi.transform, true);
+            var slot = Instantiate(shopSlotPrefab, shopUi.transform);
             slot.GetComponent<ShopItem>().SetMouseDefinition(_currentShopContent[i]);
             slot.GetComponent<ShopItem>().Refresh();
         }
