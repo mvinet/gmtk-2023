@@ -5,7 +5,8 @@ using UnityEngine;
 public enum PlayMode
 {
     Shop = 0,
-    Play = 1
+    Play = 1,
+    End = 2
 }
 public class PlayStateManager : MonoBehaviour
 {
@@ -66,7 +67,7 @@ public class PlayStateManager : MonoBehaviour
         entities.Remove(deadEntity);
         if (! entities.Find(e => e.GetType() == typeof(Mouse)))
         {
-            
+            ScenesManager.LoadScene(SceneLayer.GameState, EndManager.sceneName);
         }
     }
 }

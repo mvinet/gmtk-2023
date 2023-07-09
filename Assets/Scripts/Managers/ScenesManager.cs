@@ -16,17 +16,13 @@ public class ScenesManager
 
     private static bool isLayerUnique(SceneLayer layer)
     {
-        switch (layer)
+        return layer switch
         {
-            case SceneLayer.StandAlone:
-                return false;
-            case SceneLayer.GameState:
-                return true;
-            case SceneLayer.UI:
-                return false;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(layer), layer, null);
-        }
+            SceneLayer.StandAlone => false,
+            SceneLayer.GameState => true,
+            SceneLayer.UI => false,
+            _ => throw new ArgumentOutOfRangeException(nameof(layer), layer, null)
+        };
     }
 
     public static void LoadScene(SceneLayer sceneLayer, string sceneName)
