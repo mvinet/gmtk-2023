@@ -14,6 +14,7 @@ public abstract class Entity : MonoBehaviour
     public float currentAttackRange;
     public float moveSpeed;
 
+    public SpriteRenderer _spriteRenderer;
     public Entity target;
 
 
@@ -22,7 +23,7 @@ public abstract class Entity : MonoBehaviour
         PlayStateManager.instance.entities.Add(this);
     }
 
-    private void Update()
+    public virtual void Update()
     {
         if (PlayStateManager.instance.currentMode != PlayMode.Play)
             return;
@@ -37,6 +38,25 @@ public abstract class Entity : MonoBehaviour
             Attack();
         }
     }
+
+    public virtual void FixedUpdate()
+    {
+        if (target == null)
+            return;
+        if (PlayStateManager.instance.currentMode != PlayMode.Play ||
+            Vector2.Distance(target.transform.position,transform.position) <= currentAttackRange)
+            return;
+        
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            target.transform.position,
+            Time.deltaTime * moveSpeed
+        );
+        
+        _spriteRenderer.flipX = target.transform.position.x < transform.position.x;
+
+    }
+
 
     public virtual void Attack()
     {

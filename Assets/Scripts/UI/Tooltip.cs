@@ -24,7 +24,7 @@ namespace UI
             content.Add("Attack Damage : " + definition.hp);
             content.Add("Speed : " + definition.moveSpeed);
 
-            TooltipManager.Instance.SetAndShowTooltip(definition.name, content.ToArray());
+            TooltipManager.Instance.SetAndShowTooltip(definition.mouseName, content.ToArray());
         }
 
         private void OnMouseExit()

@@ -18,12 +18,20 @@ public class Cat : Entity<CatDefinition>
         health = PlayUIManager.instance.healthBar;
     }
 
-    private void FixedUpdate()
+    public override void Update()
     {
-        if (PlayStateManager.instance.currentMode != PlayMode.Play)
-            return;
+        base.Update();
         health.fillAmount = currentHp / (float) definition.hp;
-        
+    }
+
+    public override void FixedUpdate()
+    {
+        FindTarget();
+        base.FixedUpdate();
+    }
+
+    public void FindTarget()
+    {
         var pos = transform.position;
         var minDistance = float.PositiveInfinity;
 
@@ -35,14 +43,6 @@ public class Cat : Entity<CatDefinition>
             minDistance = distance;
             target = obj.GetComponent<Mouse>();
         }
-
-        if (target == null) return;
-
-        transform.position = Vector3.MoveTowards(
-            transform.position,
-            target.transform.position,
-            Time.deltaTime * moveSpeed
-        );
     }
 
     public override void Die()

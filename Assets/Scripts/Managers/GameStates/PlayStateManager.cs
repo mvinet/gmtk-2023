@@ -42,6 +42,7 @@ public class PlayStateManager : MonoBehaviour
     }
     public void EndWave()
     {
+        PlayUIManager.instance.StartShop();
         ChangeMode();
         StartNewWave();
     }

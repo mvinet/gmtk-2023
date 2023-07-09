@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class EntityDefinition : ScriptableObject
 {
@@ -8,7 +9,7 @@ public abstract class EntityDefinition : ScriptableObject
     public float attackSpeed;
     public float attackRange;
 
-    public string name;
+    public string mouseName;
     public string description;
 
 }
