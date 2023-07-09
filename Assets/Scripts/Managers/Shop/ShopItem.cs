@@ -10,7 +10,7 @@ public class ShopItem : MonoBehaviour, IPointerDownHandler, IDragHandler, IEndDr
 {
     private MouseDefinition _def;
     private GameObject _slotPrefab;
-    private Transform posBeforeDrag;
+    private Vector3 posBeforeDrag;
     public void SetMouseDefinition(MouseDefinition def)
     {
         _def = def;
@@ -50,21 +50,18 @@ public class ShopItem : MonoBehaviour, IPointerDownHandler, IDragHandler, IEndDr
         transform.position = eventData.position;
     }
 
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        if (ShopManager.INSTANCE.CanBuyMouse(_def))
-        {
+    public void OnEndDrag(PointerEventData eventData) {
+        if (ShopManager.INSTANCE.CanBuyMouse(_def)) {
             ShopManager.INSTANCE.BuyMouse(_def);    
-        }
-        else
+        } else
         {
-            gameObject.transform.position = posBeforeDrag.position;
+            gameObject.transform.position =  posBeforeDrag;
         }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         
-        posBeforeDrag = transform; // Save starting position
+        posBeforeDrag = transform.position; // Save starting position
     }
 }
