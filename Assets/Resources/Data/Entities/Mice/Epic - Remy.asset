@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b1275a2a95ad3e4c877e2afcee1388e, type: 3}
+  m_Name: Epic - Remy
+  m_EditorClassIdentifier: 
+  hp: 4
+  moveSpeed: 2
+  attackDamage: 2
+  attackSpeed: 0.8
+  attackRange: 3
+  entityName: Remy
+  description: 'When an other entity dies : +1 cheese'
+  passives:
+  - {fileID: 11400000, guid: 0bbd721324437c94da095d0ad1a8dfdc, type: 2}
+  rarity: 10
+  picto: {fileID: 21300000, guid: 7558eeef73cef37409b7594bb3213b83, type: 3}

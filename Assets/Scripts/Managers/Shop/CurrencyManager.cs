@@ -3,11 +3,14 @@ using UnityEngine;
 
 public class CurrencyManager : MonoBehaviour
 {
+    public static CurrencyManager instance;
     public int availableCurrency;
     public TextMeshProUGUI displayedCurrency;
 
     private void Awake()
     {
+        instance = this;
+        displayedCurrency.text = availableCurrency.ToString();
         RefreshTextUi();
     }
 

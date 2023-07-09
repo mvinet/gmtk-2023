@@ -35,11 +35,13 @@ public class PlayStateManager : MonoBehaviour
             currentMode = PlayMode.Play;
         else if (currentMode == PlayMode.Play)
             currentMode = PlayMode.Shop;
-
         ReloadEntities();
+        if (currentMode == PlayMode.Play)
+            TriggerManager.OnFightStart.Invoke(new Context());
     }
     public void EndWave()
     {
+        TriggerManager.OnFightEnd.Invoke(new Context());
         PlayUIManager.instance.StartShop();
         ChangeMode();
         StartNewWave();

@@ -8,8 +8,8 @@ using Random = UnityEngine.Random;
 
 public class ShopManager : MonoBehaviour
 {
-    public static string SceneName = "ShopScene";
-    public static ShopManager INSTANCE;
+    public static string sceneName = "ShopScene";
+    public static ShopManager instance;
     public int shopRefreshCost;
     public int shopSize;
     public MouseDefinition[] allMice;
@@ -39,6 +39,8 @@ public class ShopManager : MonoBehaviour
             slot.GetComponent<ShopItem>().SetMouseDefinition(_currentShopContent[i]);
             slot.GetComponent<ShopItem>().Refresh();
         }
+
+        instance = this;
     }
     
     private void DestroyAllRemainingShopSlots()

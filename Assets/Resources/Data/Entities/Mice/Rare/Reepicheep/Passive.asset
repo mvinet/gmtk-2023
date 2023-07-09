@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9bbb405b0bb4fd787977867f4faf9bf, type: 3}
+  m_Name: Passive
+  m_EditorClassIdentifier: 
+  trigger: 2
+  triggerCount: 1
+  endTrigger: 0
+  endTriggerCount: 0
+  targets: {fileID: 11400000, guid: edb0d71b2b9a4a746a9ed9428b03cb10, type: 2}
+  conditions:
+  - {fileID: 11400000, guid: baa135ec074bb7b4297a1f8586709114, type: 2}
+  effects:
+  - {fileID: 11400000, guid: 1a18d419417bf0d4cb9b9198f8e4acda, type: 2}
+  internalCooldown: 0

@@ -15,6 +15,7 @@ public abstract class Entity : MonoBehaviour
 
     public SpriteRenderer _spriteRenderer;
     public Entity target;
+    public List<Passive> passiveObjects = new();
 
     public GameObject fxDamages;
     
@@ -63,7 +64,7 @@ public abstract class Entity : MonoBehaviour
     {
     }
 
-    public void DealDamage(int damage)
+    public void DealDamage(int damage, Context context)
     {
 
         if (fxDamages && damage > 0)
@@ -74,6 +75,13 @@ public abstract class Entity : MonoBehaviour
         }
 
         currentHp -= damage;
+        var damageReceiveContext = new Context()
+        {
+            source = this,
+            target = this,
+            value = damage
+        };
+        TriggerManager.OnDamageReceived.Invoke(damageReceiveContext);
         if (currentHp <= 0)
             Die();
     }
@@ -88,18 +96,39 @@ public abstract class Entity : MonoBehaviour
 
     public virtual void Die()
     {
+        var context = new Context()
+        {
+            source = this,
+            target = this
+        };
+        TriggerManager.OnDeath.Invoke(context);
+        ClearPassives();
+    }
+    
+    public void ClearPassives()
+    {
+        foreach (Passive passive in passiveObjects)
+        {
+            if (passive != null)
+            {
+                passive.Delete(new Context());
+            }
+        }
+
+        passiveObjects.Clear();
     }
 }
 
 public abstract class Entity<T> : Entity where T : EntityDefinition
 {
     public T definition;
-
+    public Passive passivePrefab;
 
     public void Init(T definition)
     {
         this.definition = definition;
-        initialPosition = new Vector2(transform.position.x,transform.position.y);
+        var position = transform.position;
+        initialPosition = new Vector2(position.x,position.y);
         ReloadDefinition();
     }
 
@@ -112,12 +141,29 @@ public abstract class Entity<T> : Entity where T : EntityDefinition
         currentAttackRange = definition.attackRange;
         moveSpeed = definition.moveSpeed;
         currentAttackSpeed = definition.attackSpeed;
+        
+        ClearPassives();
+        foreach (var passiveDefinition in definition.passives)
+        {
+            Passive newPassive = Instantiate(passivePrefab, this.transform);
+            newPassive.holder = this;
+            newPassive.definition = passiveDefinition;
+            passiveObjects.Add(newPassive);
+        }
     }
 
 
     public override void Attack()
     {
-        target.DealDamage(currentAttackDamage);
+        var attackContext = new Context()
+        {
+            passiveHolder = this,
+            source = this,
+            target = target,
+            value = currentAttackDamage
+        };
+        target.DealDamage(currentAttackDamage, attackContext);
+        TriggerManager.OnAttack.Invoke(attackContext);
     }
     
     private void OnMouseEnter()

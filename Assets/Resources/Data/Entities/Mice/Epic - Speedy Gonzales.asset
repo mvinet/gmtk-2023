@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b1275a2a95ad3e4c877e2afcee1388e, type: 3}
+  m_Name: Epic - Speedy Gonzales
+  m_EditorClassIdentifier: 
+  hp: 4
+  moveSpeed: 5
+  attackDamage: 1
+  attackSpeed: 3
+  attackRange: 2
+  entityName: Speedy Gonzales
+  description: 'Fight Start : +20% attack speed to all mice'
+  passives:
+  - {fileID: 11400000, guid: b8f8c44161485954d987a9f1e27226e0, type: 2}
+  rarity: 10
+  picto: {fileID: 0}

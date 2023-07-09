@@ -291,8 +291,14 @@ MonoBehaviour:
   currentLevel: 0
   catDefinitions:
   - {fileID: 11400000, guid: d57a06c79cd1fe5439798b3ec38f2681, type: 2}
-  - {fileID: 11400000, guid: d57a06c79cd1fe5439798b3ec38f2681, type: 2}
-  - {fileID: 11400000, guid: d57a06c79cd1fe5439798b3ec38f2681, type: 2}
+  - {fileID: 11400000, guid: 02367801a38f32a4e8751fdb9c730eea, type: 2}
+  - {fileID: 11400000, guid: 8812c90b14be8b945abeb4e023928ccd, type: 2}
+  - {fileID: 11400000, guid: d8d3853730f98214e8daf87b338cc34f, type: 2}
+  - {fileID: 11400000, guid: 051d15fd5b552794db8a3e834ef1e12c, type: 2}
+  - {fileID: 11400000, guid: 355b1cd2c71f57e45a5cbf2cd63414b5, type: 2}
+  - {fileID: 11400000, guid: bd02a7373768e6e4d8bffc0f9c6679e1, type: 2}
+  - {fileID: 11400000, guid: f118c35a25268114d91157774a0217ef, type: 2}
+  - {fileID: 11400000, guid: 0b60cc9235aeb1e498594ce49097d27d, type: 2}
   mouseContainer: {fileID: 214159796}
   cat: {fileID: 467130601}
   entities: []

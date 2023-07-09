@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -12,4 +13,5 @@ public abstract class EntityDefinition : ScriptableObject
     public string entityName;
     public string description;
 
+    public List<PassiveDefinition> passives;
 }

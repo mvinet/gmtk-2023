@@ -19,11 +19,24 @@ namespace Managers.Shop
             _def = def;
         }
 
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (! ShopManager.instance.CanBuyMouse(_def))
         public String GetDisplayablePrice()
         {
             return _def.price.ToString();
         }
 
+    public void OnDrag(PointerEventData eventData)
+    {
+        transform.position = eventData.position;
+    }
+
+    public void OnEndDrag(PointerEventData eventData) {
+        if (ShopManager.instance.CanBuyMouse(_def)) {
+            ShopManager.instance.BuyMouse(_def);    
+        } else
         public Sprite GetPicto()
         {
             return _def.picto;

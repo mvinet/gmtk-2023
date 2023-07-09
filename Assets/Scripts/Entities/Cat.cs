@@ -50,6 +50,7 @@ public class Cat : Entity<CatDefinition>
 
     public override void Die()
     {
+        base.Die();
         Debug.Log("Cat is dead");
         _animator.Play("cat-death");
     }
