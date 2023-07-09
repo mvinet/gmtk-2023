@@ -50,7 +50,7 @@ namespace Managers.Shop
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            if (ShopManager.instance.CanBuyMouse(_def))
+            if (ShopManager.instance.CanBuyMouse(_def) && PlayStateManager.instance.currentMode == PlayMode.Shop)
             {
                 // Buy will : Use currency, instantiate mouse in the play scene
 
