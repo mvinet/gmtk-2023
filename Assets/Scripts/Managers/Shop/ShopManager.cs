@@ -127,11 +127,11 @@ public class ShopManager : MonoBehaviour
         
         newMouse.Init(definition);
         
-        currencyManager.UseCurrency((int)definition.rarity);
+        currencyManager.UseCurrency(definition.price);
     }
 
     public bool CanBuyMouse(MouseDefinition def)
     {
-        return currencyManager.HasEnoughCurrency((int)def.rarity);
+        return currencyManager.HasEnoughCurrency(def.price);
     }
 }

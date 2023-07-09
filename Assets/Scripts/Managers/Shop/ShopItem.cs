@@ -18,9 +18,9 @@ namespace Managers.Shop
             _def = def;
         }
 
-        public String GetPrice()
+        public String GetDisplayablePrice()
         {
-            return "1";
+            return _def.price.ToString();
         }
 
         public Sprite GetPicto()
@@ -36,7 +36,7 @@ namespace Managers.Shop
             }
 
             GetComponentInChildren<Image>().sprite = GetPicto();
-            GetComponentInChildren<TextMeshProUGUI>().text = GetPrice();
+            GetComponentInChildren<TextMeshProUGUI>().text = GetDisplayablePrice();
         }
 
 

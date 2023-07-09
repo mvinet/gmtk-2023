@@ -64,5 +64,9 @@ public class PlayStateManager : MonoBehaviour
     public void OnEntityDeath(Entity deadEntity)
     {
         entities.Remove(deadEntity);
+        if (! entities.Find(e => e.GetType() == typeof(Mouse)))
+        {
+            //EndGame
+        }
     }
 }
