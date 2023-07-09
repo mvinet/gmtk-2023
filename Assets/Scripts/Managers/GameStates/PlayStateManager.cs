@@ -8,6 +8,7 @@ public enum PlayMode
     Play = 1,
     End = 2
 }
+
 public class PlayStateManager : MonoBehaviour
 {
     public static PlayStateManager instance;
@@ -26,8 +27,8 @@ public class PlayStateManager : MonoBehaviour
     {
         instance = this;
         currentMode = PlayMode.Shop;
-        ScenesManager.LoadScene(SceneLayer.UI,PlayUIManager.sceneName);
-        ScenesManager.LoadScene(SceneLayer.UI,ShopManager.sceneName);
+        ScenesManager.LoadScene(SceneLayer.UI, PlayUIManager.sceneName);
+        ScenesManager.LoadScene(SceneLayer.UI, ShopManager.sceneName);
     }
 
     public void ChangeMode()
@@ -37,10 +38,11 @@ public class PlayStateManager : MonoBehaviour
             currentMode = PlayMode.Play;
         else if (currentMode == PlayMode.Play)
             currentMode = PlayMode.Shop;
-        
+
         if (currentMode == PlayMode.Play)
             TriggerManager.OnFightStart.Invoke(new Context());
     }
+
     public void EndWave()
     {
         TriggerManager.OnFightEnd.Invoke(new Context());
@@ -58,16 +60,25 @@ public class PlayStateManager : MonoBehaviour
             entity.ReloadDefinition();
         }
     }
+
     private void StartNewWave()
     {
         currentLevel++;
-        cat.Init(catDefinitions[currentLevel]);
+        if (currentLevel == catDefinitions.Count)
+        {
+            EndManager.message = "Victory !";
+            ScenesManager.LoadScene(SceneLayer.UI, EndManager.sceneName);
+        }
+        else
+        {
+            cat.Init(catDefinitions[currentLevel]);
+        }
     }
 
     public void OnEntityDeath(Entity deadEntity)
     {
         entities.Remove(deadEntity);
-        if (! entities.Find(e => e.GetType() == typeof(Mouse)))
+        if (!entities.Find(e => e.GetType() == typeof(Mouse)))
         {
             EndManager.message = "Game Over";
             ScenesManager.LoadScene(SceneLayer.UI, EndManager.sceneName);
