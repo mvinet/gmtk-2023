@@ -18,5 +18,5 @@ MonoBehaviour:
   attackSpeed: 1
   attackRange: 3
   name: Tom
-  description: Essaye de tuer Jerry
+  description: 
   currencyLoot: 0

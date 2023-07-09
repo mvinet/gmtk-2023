@@ -1,6 +1,5 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace UI
 {
@@ -10,12 +9,22 @@ namespace UI
 
         private void OnMouseEnter()
         {
-            TooltipManager.Instance.SetAndShowTooltip(definition.name, new []
+            var content = new List<string>();
+
+            if (definition.description != "")
             {
-                "It's a bad cat",
-                "He keep all the cheese",
-                "UwU"
-            });
+                content.Add(definition.description);
+                content.Add("");
+            }
+
+            content.Add("Health : " + definition.hp);
+            content.Add("Attack Damage : " + definition.attackDamage);
+            content.Add("Attack Speed : " + definition.attackSpeed);
+            content.Add("Attack Range : " + definition.attackRange);
+            content.Add("Attack Damage : " + definition.hp);
+            content.Add("Speed : " + definition.moveSpeed);
+
+            TooltipManager.Instance.SetAndShowTooltip(definition.name, content.ToArray());
         }
 
         private void OnMouseExit()
