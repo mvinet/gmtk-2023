@@ -1,3 +1,5 @@
+using System.Collections;
+using TMPro;
 using UI;
 using UnityEngine;
 
@@ -14,7 +16,8 @@ public abstract class Entity : MonoBehaviour
     public SpriteRenderer _spriteRenderer;
     public Entity target;
 
-
+    public GameObject fxDamages;
+    
     public virtual void Start()
     {
         PlayStateManager.instance.entities.Add(this);
@@ -62,10 +65,25 @@ public abstract class Entity : MonoBehaviour
 
     public void DealDamage(int damage)
     {
+
+        if (fxDamages)
+        {
+            var fx = Instantiate(fxDamages, transform.position, Quaternion.identity);
+            fx.GetComponentInChildren<TextMesh>().text = damage.ToString();
+            StartCoroutine(DestroyFx(fx));
+        }
+
         currentHp -= damage;
         if (currentHp <= 0)
             Die();
     }
+
+    private IEnumerator DestroyFx(GameObject fx)
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(fx);
+    }
+    
     public virtual void ReloadDefinition(){}
 
     public virtual void Die()
@@ -111,4 +129,6 @@ public abstract class Entity<T> : Entity where T : EntityDefinition
     {
         TooltipManager.Instance.HideTooltip();
     }
+    
+    
 }
