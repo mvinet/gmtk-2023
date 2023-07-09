@@ -6,6 +6,8 @@ public class Cat : Entity<CatDefinition>
 {
     [SerializeField]
     private Image health;
+
+    private Animator _animator;
     
     private void Awake()
     {
@@ -15,6 +17,7 @@ public class Cat : Entity<CatDefinition>
     public override void Start()
     {
         base.Start();
+        _animator = GetComponent<Animator>();
         health = PlayUIManager.instance.healthBar;
     }
 
@@ -48,6 +51,12 @@ public class Cat : Entity<CatDefinition>
     public override void Die()
     {
         Debug.Log("Cat is dead");
+        _animator.Play("cat-death");
+        
+    }
+
+    public void OnCatDeathEvent()
+    {
         PlayStateManager.instance.EndWave();
     }
 }
