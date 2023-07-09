@@ -13,6 +13,7 @@ namespace Managers.Shop
         private MouseDefinition _def;
         private Vector3 _posBeforeDrag;
         public Image borderImage;
+        public Image shopItemImage;
         
 
         public void SetMouseDefinition(MouseDefinition def)
@@ -42,7 +43,7 @@ namespace Managers.Shop
                 transform.GetChild(i).gameObject.SetActive(true);
             }
             
-            GetComponentInChildren<Image>().sprite = GetPicto();
+            shopItemImage.sprite = GetPicto();
             GetComponentInChildren<TextMeshProUGUI>().text = GetDisplayablePrice();
             borderImage.sprite = BorderManager.Instance.GetBorderForRarity(_def.rarity);
         }

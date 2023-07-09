@@ -30,6 +30,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1996429357896542690}
   - {fileID: 5815828820950354340}
   m_Father: {fileID: 0}
   m_RootOrder: -1
@@ -60,6 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   borderImage: {fileID: 889836906924619555}
+  shopItemImage: {fileID: 427365201933079507}
 --- !u!1 &4880278034986725748
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +95,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8270854772316059399}
-  - {fileID: 1996429357896542690}
   m_Father: {fileID: 5797952946754970963}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -241,7 +242,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5815828820950354340}
+  m_Father: {fileID: 5797952946754970963}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
