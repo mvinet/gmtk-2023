@@ -67,6 +67,7 @@ public class PlayStateManager : MonoBehaviour
         entities.Remove(deadEntity);
         if (! entities.Find(e => e.GetType() == typeof(Mouse)))
         {
+            EndManager.message = "Game Over";
             ScenesManager.LoadScene(SceneLayer.UI, EndManager.sceneName);
         }
     }

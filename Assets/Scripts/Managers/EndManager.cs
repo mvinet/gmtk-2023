@@ -1,12 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using TMPro;
 using UnityEngine;
 
 public class EndManager : MonoBehaviour
 {
     public static string sceneName = "EndScene";
-    // Start is called before the first frame update
 
+    public static string message = "Game Over";
+
+    public TextMeshProUGUI TextMeshPro;
+
+    private void Start()
+    {
+        TextMeshPro.text = message;
+    }
 
     public static void Restart()
     {
