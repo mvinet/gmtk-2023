@@ -10,8 +10,9 @@ namespace Managers.Shop
     public class ShopItem : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler, IPointerEnterHandler, IPointerExitHandler
     {
         private MouseDefinition _def;
-        private GameObject _slotPrefab;
         private Vector3 _posBeforeDrag;
+        public Image borderImage;
+        
 
         public void SetMouseDefinition(MouseDefinition def)
         {
@@ -34,9 +35,10 @@ namespace Managers.Shop
             {
                 transform.GetChild(i).gameObject.SetActive(true);
             }
-
+            
             GetComponentInChildren<Image>().sprite = GetPicto();
             GetComponentInChildren<TextMeshProUGUI>().text = GetDisplayablePrice();
+            borderImage.sprite = BorderManager.Instance.GetBorderForRarity(_def.rarity);
         }
 
 

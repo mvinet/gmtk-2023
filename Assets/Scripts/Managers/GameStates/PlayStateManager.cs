@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -66,7 +64,7 @@ public class PlayStateManager : MonoBehaviour
         entities.Remove(deadEntity);
         if (! entities.Find(e => e.GetType() == typeof(Mouse)))
         {
-            //EndGame
+            
         }
     }
 }

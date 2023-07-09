@@ -485,6 +485,51 @@ MonoBehaviour:
   button: {fileID: 876044073}
   refreshPressed: {fileID: 21300000, guid: 64acf6ef11c3b11438e2513eb856205d, type: 3}
   refreshReleased: {fileID: 21300000, guid: de1f220069971824e927042a4e2a7b6a, type: 3}
+--- !u!1 &1062313318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1062313320}
+  - component: {fileID: 1062313319}
+  m_Layer: 0
+  m_Name: BorderManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1062313319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062313318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df1b2b6381fe4f2a81f5bfa01e9e1a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultBorder: {fileID: 21300000, guid: 00c08133d74d2394ca20a8ce1a184cc2, type: 3}
+--- !u!4 &1062313320
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062313318}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 665.35095, y: 115.433784, z: -4.5597563}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1412820931
 GameObject:
   m_ObjectHideFlags: 0
