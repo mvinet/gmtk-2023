@@ -510,7 +510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5715992257665305415, guid: 6ef0517d172ce0a4a962daee3876f769, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 11111111
       objectReference: {fileID: 0}
     - target: {fileID: 5715992257665305415, guid: 6ef0517d172ce0a4a962daee3876f769, type: 3}
       propertyPath: m_LocalRotation.w
@@ -570,6 +570,7 @@ GameObject:
   - component: {fileID: 1246248279}
   - component: {fileID: 1246248278}
   - component: {fileID: 1246248277}
+  - component: {fileID: 1246248282}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -663,6 +664,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!222 &1246248282
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246248276}
+  m_CullTransparentMesh: 1
 --- !u!1 &1578613300
 GameObject:
   m_ObjectHideFlags: 0
