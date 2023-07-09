@@ -223,9 +223,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3904519118261428699, guid: fd1406dd98bd94ae79f413fed6082602, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9681dda686571471ab98dc3e845a31a5, type: 3}
     - target: {fileID: 5020630762339091428, guid: fd1406dd98bd94ae79f413fed6082602, type: 3}
       propertyPath: m_Name
       value: FloatingTextContainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634614258865172593, guid: fd1406dd98bd94ae79f413fed6082602, type: 3}
+      propertyPath: m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 9681dda686571471ab98dc3e845a31a5, type: 3}
+    - target: {fileID: 8634614258865172593, guid: fd1406dd98bd94ae79f413fed6082602, type: 3}
+      propertyPath: m_Color.rgba
+      value: 4279772159
       objectReference: {fileID: 0}
     - target: {fileID: 9187244522969637414, guid: fd1406dd98bd94ae79f413fed6082602, type: 3}
       propertyPath: m_RootOrder
