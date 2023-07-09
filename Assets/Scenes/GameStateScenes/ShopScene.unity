@@ -215,7 +215,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -54.823242, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -634,6 +634,7 @@ MonoBehaviour:
   shopUi: {fileID: 1801875603}
   shopSlotPrefab: {fileID: 1898661246869385437, guid: 264c1a585b0f1a14ba60419cb93e43c2, type: 3}
   mousePrefab: {fileID: 7306036937272554891, guid: 16da10da7769f9040a83696649403927, type: 3}
+  playScene: {fileID: 0}
 --- !u!4 &1488891332
 Transform:
   m_ObjectHideFlags: 0
