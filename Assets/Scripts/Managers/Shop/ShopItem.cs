@@ -20,7 +20,7 @@ namespace Managers.Shop
 
         public String GetPrice()
         {
-            return ((int)_def.rarity).ToString();
+            return "1";
         }
 
         public Sprite GetPicto()
