@@ -19,6 +19,7 @@ public abstract class Entity : MonoBehaviour
     public List<Passive> passiveObjects = new();
 
     public GameObject fxDamages;
+    public GameObject explosionFxPrefab;
     
     public virtual void Start()
     {
@@ -34,7 +35,7 @@ public abstract class Entity : MonoBehaviour
             return;
         
         if (Vector2.Distance(transform.position, target.transform.position) <= currentAttackRange &&
-            currentCooldown <= 0 && currentHp > 0)
+            currentCooldown <= 0 && currentHp > 0 && target.currentHp > 0)
         {
             currentCooldown = 1 / currentAttackSpeed;
             
@@ -104,6 +105,7 @@ public abstract class Entity : MonoBehaviour
         };
         TriggerManager.OnDeath.Invoke(context);
         ClearPassives();
+        Instantiate(explosionFxPrefab, transform);
     }
     
     public void ClearPassives()

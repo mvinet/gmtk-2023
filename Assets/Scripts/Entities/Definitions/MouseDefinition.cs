@@ -6,4 +6,5 @@ public class MouseDefinition : EntityDefinition
     public Rarity rarity;
     public Sprite picto;
     public int price = 1;
+    public Color color;
 }

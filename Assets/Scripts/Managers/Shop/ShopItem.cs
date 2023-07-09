@@ -44,6 +44,7 @@ namespace Managers.Shop
             }
             
             shopItemImage.sprite = GetPicto();
+            shopItemImage.color = _def.color;
             GetComponentInChildren<TextMeshProUGUI>().text = GetDisplayablePrice();
             borderImage.sprite = BorderManager.Instance.GetBorderForRarity(_def.rarity);
         }

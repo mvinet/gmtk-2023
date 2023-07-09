@@ -132,6 +132,7 @@ MonoBehaviour:
   target: {fileID: 0}
   passiveObjects: []
   fxDamages: {fileID: 5020630762339091428, guid: fd1406dd98bd94ae79f413fed6082602, type: 3}
+  explosionFxPrefab: {fileID: 1512128911867376600, guid: 76b8f6152db2de7418e250488617be39, type: 3}
   definition: {fileID: 11400000, guid: d57a06c79cd1fe5439798b3ec38f2681, type: 2}
   passivePrefab: {fileID: 7278312021104919867, guid: 3b11d5187ca7a844baef2eaa3f1ae940, type: 3}
   health: {fileID: 0}

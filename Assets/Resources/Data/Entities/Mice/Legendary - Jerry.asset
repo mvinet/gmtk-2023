@@ -24,3 +24,4 @@ MonoBehaviour:
   rarity: 1
   picto: {fileID: 21300000, guid: 7558eeef73cef37409b7594bb3213b83, type: 3}
   price: 3
+  color: {r: 1, g: 0.81960785, b: 0.56078434, a: 1}

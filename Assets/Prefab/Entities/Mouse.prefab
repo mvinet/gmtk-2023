@@ -55,10 +55,11 @@ MonoBehaviour:
   currentAttackSpeed: 0
   currentAttackRange: 0
   moveSpeed: 1
-  _spriteRenderer: {fileID: 0}
+  _spriteRenderer: {fileID: 1068640546507080448}
   target: {fileID: 0}
   passiveObjects: []
   fxDamages: {fileID: 0}
+  explosionFxPrefab: {fileID: 1512128911867376600, guid: 76b8f6152db2de7418e250488617be39, type: 3}
   definition: {fileID: 11400000, guid: b3ea4798b5dd10b4194be822d5184a30, type: 2}
   passivePrefab: {fileID: 7278312021104919867, guid: 3b11d5187ca7a844baef2eaa3f1ae940, type: 3}
 --- !u!212 &1068640546507080448

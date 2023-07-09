@@ -14,6 +14,12 @@ public class Mouse : Entity<MouseDefinition>
         target = PlayStateManager.instance.cat;
     }
 
+    public override void ReloadDefinition()
+    {
+        base.ReloadDefinition();
+        _spriteRenderer.color = definition.color;
+    }
+
     public override void Die()
     {
         base.Die();
