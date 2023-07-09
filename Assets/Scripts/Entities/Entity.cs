@@ -29,9 +29,10 @@ public abstract class Entity : MonoBehaviour
             return;
         
         if (Vector2.Distance(transform.position, target.transform.position) <= currentAttackRange &&
-            currentCooldown <= 0)
+            currentCooldown <= 0 && currentHp > 0)
         {
             currentCooldown = 1 / currentAttackSpeed;
+            
             Attack();
         }
     }

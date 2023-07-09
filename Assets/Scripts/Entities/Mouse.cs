@@ -25,8 +25,6 @@ public class Mouse : Entity<MouseDefinition>
 
     public override void Attack()
     {
-        if(currentHp <= 0) return;
-        
         base.Attack();
         _animator.Play("mouse-attack");
     }

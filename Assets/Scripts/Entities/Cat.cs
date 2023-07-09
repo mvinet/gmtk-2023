@@ -56,8 +56,8 @@ public class Cat : Entity<CatDefinition>
     
     public override void Attack()
     {
-        _animator.Play("cat-attack");
         base.Attack();
+        _animator.Play("cat-attack");
     }
 
     public void OnCatDeathEvent()
