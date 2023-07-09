@@ -1,7 +1,7 @@
 ﻿public enum Rarity
 {
-    NORMAL = 2,
-    RARE = 4,
+    NORMAL = 59,
+    RARE = 30,
     EPIC = 10,
-    LEGENDARY = 25
+    LEGENDARY = 1
 }

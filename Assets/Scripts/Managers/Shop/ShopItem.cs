@@ -1,12 +1,13 @@
 ﻿using System;
 using TMPro;
+using UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Managers.Shop
 {
-    public class ShopItem : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
+    public class ShopItem : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler, IPointerEnterHandler, IPointerExitHandler
     {
         private MouseDefinition _def;
         private GameObject _slotPrefab;
@@ -68,6 +69,16 @@ namespace Managers.Shop
             }
 
             _posBeforeDrag = transform.position; // Save starting position
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            TooltipManager.Instance.SetEntityDefinitionTooltip(_def);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            TooltipManager.Instance.HideTooltip();
         }
     }
 }
