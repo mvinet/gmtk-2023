@@ -27,7 +27,6 @@ public class CurrencyManager : MonoBehaviour
     {
         if (cost > availableCurrency)
         {
-            Debug.Log("ALLO IL FAUT UTILISER HAS ENOUGH CURRENCY AVANT POUR EVITER DE S'ENDETTER");
             return false;
         }
 
