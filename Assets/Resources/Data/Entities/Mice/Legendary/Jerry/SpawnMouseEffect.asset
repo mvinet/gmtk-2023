@@ -14,6 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePrefab: {fileID: 7306036937272554891, guid: 16da10da7769f9040a83696649403927, type: 3}
   mousePool:
-  - {fileID: 11400000, guid: b3ea4798b5dd10b4194be822d5184a30, type: 2}
-  - {fileID: 11400000, guid: b3826eab872eb6b47bfdf97cb3081ee8, type: 2}
   - {fileID: 11400000, guid: e9c1ab9421db1ce429f746bff87af167, type: 2}

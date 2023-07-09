@@ -18,7 +18,7 @@ MonoBehaviour:
   attackSpeed: 0.25
   attackRange: 3
   entityName: Fatty
-  description: 'Death : +6 Cheese'
+  description: 'Death : +2 Cheese'
   passives:
   - {fileID: 11400000, guid: cb7eadbc67f6a904696caec37db9081c, type: 2}
   rarity: 59

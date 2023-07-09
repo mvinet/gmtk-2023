@@ -32,11 +32,12 @@ public class PlayStateManager : MonoBehaviour
 
     public void ChangeMode()
     {
+        ReloadEntities();
         if (currentMode == PlayMode.Shop)
             currentMode = PlayMode.Play;
         else if (currentMode == PlayMode.Play)
             currentMode = PlayMode.Shop;
-        ReloadEntities();
+        
         if (currentMode == PlayMode.Play)
             TriggerManager.OnFightStart.Invoke(new Context());
     }
@@ -45,6 +46,7 @@ public class PlayStateManager : MonoBehaviour
         TriggerManager.OnFightEnd.Invoke(new Context());
         PlayUIManager.instance.StartShop();
         ChangeMode();
+        CurrencyManager.instance.AddCurrency(cat.definition.currencyLoot);
         StartNewWave();
         ShopManager.instance.OnFightRoundEnd();
     }

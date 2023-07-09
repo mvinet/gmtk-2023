@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ed03f302bf48ae9f20a3a6bd22fe12, type: 3}
   m_Name: GainCheese
   m_EditorClassIdentifier: 
-  value: 6
+  value: 2

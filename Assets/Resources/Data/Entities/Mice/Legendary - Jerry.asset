@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1275a2a95ad3e4c877e2afcee1388e, type: 3}
   m_Name: Legendary - Jerry
   m_EditorClassIdentifier: 
-  hp: 5
+  hp: 10
   moveSpeed: 1
   attackDamage: 0
-  attackSpeed: 0.3
+  attackSpeed: 0.2
   attackRange: 20
   entityName: Jerry
-  description: 'Attack : Spawns a normal mouse'
+  description: 'Attack : Spawns a Greedy mouse'
   passives:
   - {fileID: 11400000, guid: 3db78cc6765d963408a10e48f827f9c6, type: 2}
   rarity: 1
   picto: {fileID: 21300000, guid: 7558eeef73cef37409b7594bb3213b83, type: 3}
-  price: 3
+  price: 25
   color: {r: 1, g: 0.81960785, b: 0.56078434, a: 1}

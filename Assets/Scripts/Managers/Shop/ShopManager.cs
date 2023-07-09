@@ -90,6 +90,7 @@ public class ShopManager : MonoBehaviour
     public void OnFightRoundEnd()
     {
         RefreshShop();
+        currencyManager.AddCurrency(shopRefreshCost);
     }
 
     public void RefreshShop()

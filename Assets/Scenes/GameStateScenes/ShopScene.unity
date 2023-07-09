@@ -627,7 +627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4553e8f001a1efb408cd1ff271ff9d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopRefreshCost: 0
+  shopRefreshCost: 1
   shopSize: 5
   allMice: []
   currencyManager: {fileID: 1575325042}

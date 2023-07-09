@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 1
   moveSpeed: 3
-  attackDamage: 1
-  attackSpeed: 0.5
+  attackDamage: 3
+  attackSpeed: 0.3
   attackRange: 3
   entityName: Greedy
   description: 'Attack : +1 Cheese'

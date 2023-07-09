@@ -15,12 +15,12 @@ MonoBehaviour:
   hp: 2
   moveSpeed: 2
   attackDamage: 2
-  attackSpeed: 1
+  attackSpeed: 1.5
   attackRange: 8
   entityName: Twitch
   description: Attacks from afar
   passives: []
   rarity: 30
   picto: {fileID: 21300000, guid: 7558eeef73cef37409b7594bb3213b83, type: 3}
-  price: 3
+  price: 5
   color: {r: 0.59607846, g: 1, b: 0.19215687, a: 1}

@@ -20,7 +20,7 @@ public abstract class Entity : MonoBehaviour
 
     public GameObject fxDamages;
     public GameObject explosionFxPrefab;
-    
+
     public virtual void Start()
     {
         PlayStateManager.instance.entities.Add(this);
@@ -33,12 +33,12 @@ public abstract class Entity : MonoBehaviour
         currentCooldown -= Time.deltaTime;
         if (target == null)
             return;
-        
+
         if (Vector2.Distance(transform.position, target.transform.position) <= currentAttackRange &&
             currentCooldown <= 0 && currentHp > 0 && target.currentHp > 0)
         {
             currentCooldown = 1 / currentAttackSpeed;
-            
+
             Attack();
         }
     }
@@ -48,17 +48,16 @@ public abstract class Entity : MonoBehaviour
         if (target == null)
             return;
         if (PlayStateManager.instance.currentMode != PlayMode.Play ||
-            Vector2.Distance(target.transform.position,transform.position) <= currentAttackRange)
+            Vector2.Distance(target.transform.position, transform.position) <= currentAttackRange)
             return;
-        
+
         transform.position = Vector3.MoveTowards(
             transform.position,
             target.transform.position,
             Time.deltaTime * moveSpeed
         );
-        
-        _spriteRenderer.flipX = target.transform.position.x < transform.position.x;
 
+        _spriteRenderer.flipX = target.transform.position.x < transform.position.x;
     }
 
 
@@ -68,7 +67,6 @@ public abstract class Entity : MonoBehaviour
 
     public void DealDamage(int damage, Context context)
     {
-
         if (fxDamages && damage > 0)
         {
             var fx = Instantiate(fxDamages, transform.position, Quaternion.identity);
@@ -93,8 +91,10 @@ public abstract class Entity : MonoBehaviour
         yield return new WaitForSeconds(1);
         Destroy(fx);
     }
-    
-    public virtual void ReloadDefinition(){}
+
+    public virtual void ReloadDefinition()
+    {
+    }
 
     public virtual void Die()
     {
@@ -107,7 +107,7 @@ public abstract class Entity : MonoBehaviour
         ClearPassives();
         Instantiate(explosionFxPrefab, transform);
     }
-    
+
     public void ClearPassives()
     {
         foreach (Passive passive in passiveObjects)
@@ -131,7 +131,7 @@ public abstract class Entity<T> : Entity where T : EntityDefinition
     {
         this.definition = definition;
         var position = transform.position;
-        initialPosition = new Vector2(position.x,position.y);
+        initialPosition = new Vector2(position.x, position.y);
         ReloadDefinition();
     }
 
@@ -144,7 +144,9 @@ public abstract class Entity<T> : Entity where T : EntityDefinition
         currentAttackRange = definition.attackRange;
         moveSpeed = definition.moveSpeed;
         currentAttackSpeed = definition.attackSpeed;
-        
+        currentCooldown = 1 / definition.attackSpeed;
+
+
         ClearPassives();
         foreach (var passiveDefinition in definition.passives)
         {
@@ -168,7 +170,7 @@ public abstract class Entity<T> : Entity where T : EntityDefinition
         target.DealDamage(currentAttackDamage, attackContext);
         TriggerManager.OnAttack.Invoke(attackContext);
     }
-    
+
     private void OnMouseEnter()
     {
         TooltipManager.Instance.SetEntityDefinitionTooltip(definition);
@@ -178,6 +180,4 @@ public abstract class Entity<T> : Entity where T : EntityDefinition
     {
         TooltipManager.Instance.HideTooltip();
     }
-    
-    
 }
