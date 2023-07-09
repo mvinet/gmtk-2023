@@ -130,8 +130,10 @@ MonoBehaviour:
   moveSpeed: 1
   _spriteRenderer: {fileID: 2785258806963439624}
   target: {fileID: 0}
+  passiveObjects: []
   fxDamages: {fileID: 5020630762339091428, guid: fd1406dd98bd94ae79f413fed6082602, type: 3}
   definition: {fileID: 11400000, guid: d57a06c79cd1fe5439798b3ec38f2681, type: 2}
+  passivePrefab: {fileID: 7278312021104919867, guid: 3b11d5187ca7a844baef2eaa3f1ae940, type: 3}
   health: {fileID: 0}
 --- !u!50 &2847457785913751939
 Rigidbody2D:

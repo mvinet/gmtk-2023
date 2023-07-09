@@ -23,3 +23,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0bbd721324437c94da095d0ad1a8dfdc, type: 2}
   rarity: 10
   picto: {fileID: 21300000, guid: 7558eeef73cef37409b7594bb3213b83, type: 3}
+  price: 3

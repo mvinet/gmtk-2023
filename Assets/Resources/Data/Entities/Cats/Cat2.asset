@@ -15,8 +15,9 @@ MonoBehaviour:
   hp: 10
   moveSpeed: 1
   attackDamage: 1
-  attackSpeed: 1
-  attackRange: 3
+  attackSpeed: 0.6
+  attackRange: 2
   entityName: Tom
   description: 
-  currencyLoot: 0
+  passives: []
+  currencyLoot: 15

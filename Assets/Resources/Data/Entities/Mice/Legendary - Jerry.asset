@@ -21,5 +21,6 @@ MonoBehaviour:
   description: 'Attack : Spawns a normal mouse'
   passives:
   - {fileID: 11400000, guid: 3db78cc6765d963408a10e48f827f9c6, type: 2}
-  rarity: 25
+  rarity: 1
   picto: {fileID: 21300000, guid: 7558eeef73cef37409b7594bb3213b83, type: 3}
+  price: 3

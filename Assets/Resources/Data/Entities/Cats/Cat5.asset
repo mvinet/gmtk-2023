@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd26f3803a334d847982a8acade6e957, type: 3}
   m_Name: Cat5
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 50
   moveSpeed: 1
   attackDamage: 1
-  attackSpeed: 1
-  attackRange: 3
+  attackSpeed: 0.9
+  attackRange: 2
   entityName: Tom
   description: 
-  currencyLoot: 0
+  passives: []
+  currencyLoot: 30
