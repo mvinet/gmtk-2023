@@ -26,7 +26,7 @@ public class PlayStateManager : MonoBehaviour
         instance = this;
         currentMode = PlayMode.Shop;
         ScenesManager.LoadScene(SceneLayer.UI,PlayUIManager.sceneName);
-        ScenesManager.LoadScene(SceneLayer.UI,ShopManager.SceneName);
+        ScenesManager.LoadScene(SceneLayer.UI,ShopManager.sceneName);
     }
 
     public void ChangeMode()
@@ -45,7 +45,7 @@ public class PlayStateManager : MonoBehaviour
         PlayUIManager.instance.StartShop();
         ChangeMode();
         StartNewWave();
-        ShopManager.INSTANCE.OnFightRoundEnd();
+        ShopManager.instance.OnFightRoundEnd();
     }
 
     public void ReloadEntities()

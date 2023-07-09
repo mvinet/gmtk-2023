@@ -23,12 +23,11 @@ public class ShopManager : MonoBehaviour
     
     private void Awake()
     {
+        instance = this;
         allMice = Resources.LoadAll<MouseDefinition>("Data/Entities/Mice");
         _currentShopContent = GetRandomShopContent();
         // initialize UI
         GenerateAllShopSlots();
-
-        INSTANCE = this;
     }
 
     private void GenerateAllShopSlots()

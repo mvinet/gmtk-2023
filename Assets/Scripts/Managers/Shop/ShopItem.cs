@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 namespace Managers.Shop
 {
-    public class ShopItem : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler, IPointerEnterHandler, IPointerExitHandler
+    public class ShopItem : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler, IPointerEnterHandler,
+        IPointerExitHandler
     {
         private MouseDefinition _def;
         private Vector3 _posBeforeDrag;
@@ -18,25 +19,17 @@ namespace Managers.Shop
         {
             _def = def;
         }
+        
+        public void OnDrag(PointerEventData eventData)
+        {
+            transform.position = eventData.position;
+        }
 
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        if (! ShopManager.instance.CanBuyMouse(_def))
         public String GetDisplayablePrice()
         {
             return _def.price.ToString();
         }
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        transform.position = eventData.position;
-    }
-
-    public void OnEndDrag(PointerEventData eventData) {
-        if (ShopManager.instance.CanBuyMouse(_def)) {
-            ShopManager.instance.BuyMouse(_def);    
-        } else
         public Sprite GetPicto()
         {
             return _def.picto;
@@ -54,19 +47,13 @@ namespace Managers.Shop
             borderImage.sprite = BorderManager.Instance.GetBorderForRarity(_def.rarity);
         }
 
-
-        public void OnDrag(PointerEventData eventData)
-        {
-            transform.position = eventData.position;
-        }
-
         public void OnEndDrag(PointerEventData eventData)
         {
-            if (ShopManager.INSTANCE.CanBuyMouse(_def))
+            if (ShopManager.instance.CanBuyMouse(_def))
             {
                 // Buy will : Use currency, instantiate mouse in the play scene
-                
-                ShopManager.INSTANCE.BuyMouse(_def, Camera.main.ScreenToWorldPoint(eventData.position));
+
+                ShopManager.instance.BuyMouse(_def, Camera.main.ScreenToWorldPoint(eventData.position));
                 //This will destroy the shop item being dragged
                 Destroy(gameObject);
             }
@@ -78,7 +65,7 @@ namespace Managers.Shop
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            if (!ShopManager.INSTANCE.CanBuyMouse(_def))
+            if (!ShopManager.instance.CanBuyMouse(_def))
             {
                 eventData.pointerDrag = null;
             }
