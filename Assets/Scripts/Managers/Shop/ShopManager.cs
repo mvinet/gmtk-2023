@@ -12,6 +12,7 @@ public class ShopManager : MonoBehaviour
 {
     public static string sceneName = "ShopScene";
     public static ShopManager instance;
+    public int shopInitialCost;
     public int shopRefreshCost;
     public int shopSize;
     public MouseDefinition[] allMice;
@@ -20,7 +21,7 @@ public class ShopManager : MonoBehaviour
     public GameObject shopSlotPrefab;
     private List<MouseDefinition> _currentShopContent;
     public Mouse mousePrefab;
-    public SceneAsset playScene;
+    public RefreshScript RefreshScript;
 
 
     private void Awake()
@@ -30,6 +31,7 @@ public class ShopManager : MonoBehaviour
         _currentShopContent = GetRandomShopContent();
         // initialize UI
         GenerateAllShopSlots();
+        RefreshScript.setCost(shopRefreshCost.ToString());
     }
 
     private void GenerateAllShopSlots()
@@ -93,6 +95,8 @@ public class ShopManager : MonoBehaviour
     {
         RefreshShop();
         currencyManager.AddCurrency(shopRefreshCost);
+        shopRefreshCost = shopInitialCost;
+        RefreshScript.setCost(shopRefreshCost.ToString());
     }
 
     public void RefreshShop()
@@ -105,6 +109,9 @@ public class ShopManager : MonoBehaviour
             currencyManager.UseCurrency(shopRefreshCost);
             RefreshShopUi(_currentShopContent);
         } // else display error ? Disable refresh button if available currency < shopRefreshCost
+
+        shopRefreshCost += 1;
+        RefreshScript.setCost(shopRefreshCost.ToString());
     }
 
     public void RefreshShopUi(List<MouseDefinition> definitions)
